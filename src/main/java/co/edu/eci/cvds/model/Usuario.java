@@ -15,5 +15,46 @@ public abstract class Usuario {
         this.correo = correo;
         this.direccion = direccion;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipoId() {
+        return tipoId;
+    }
+
+    public void setTipoId(String tipoId) {
+        this.tipoId = tipoId;
+    }
+
+    public int getNumeroId() {
+        return numeroId;
+    }
+
+    public void setNumeroId(int numeroId) {
+        this.numeroId = numeroId;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public abstract void mostrarInformacion();
 }
