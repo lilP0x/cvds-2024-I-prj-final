@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; 
+    background-color: #040404; 
+    /*background-color: green; */
+    /*background-color: #0ed0d5;*/
+    margin: 20%;
+    border-radius: 50px;
+    box-shadow: 4px 4px 7px #022236, -4px -4px 7px #082040;
+}
+
+
+.container_title{
+    color:#747474
+
+}
+
+body {
+    background: linear-gradient(to bottom, #040404,#3c3c3c,#7c7c7c,#747474);
+    /*background-color: #444c54;
+    /*background-image: url('fondo.jpeg'); */
+    /*background-repeat: no-repeat; */
+}
+
+
+
+.container_item {
+    background-color: #dfbf43; 
+    height: 50px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin: 10px 0;
+    border-radius: 10px; 
+    box-shadow: 2px 2px 4px #022236, -2px -2px 4px #082040; 
+}
+
+.container_item select {
+    flex-grow: 1;
+    height: 100%;
+    background-color: #dfbf43;  
+    color:black; 
+    border: none;
+    border-radius: 10px; 
+    padding-left: 10px;
+}
+
+.container_item label {
+    color:black; 
+}
+
+.button {
+    text-align: center; 
+}
+
+.button button {
+    background-color: #dfbf43; 
+    color: black; 
+
+    border-radius: 10px; 
+    padding: 10px 20px; 
+    box-shadow: 2px 2px 4px #022236, -2px -2px 4px #082040;
+    transition: all 0.3s; 
+}
+
+.button button:hover {
+    background-color: #c2212a;
+    color: white;            
+}

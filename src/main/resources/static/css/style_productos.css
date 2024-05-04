@@ -1,0 +1,188 @@
+body{
+    background-color: #040404 ;
+}
+
+h2{
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    height: 10vh; 
+    background-color: #292c33; /*Esto lo cambie*/
+
+    border-radius: 30px;
+    padding: 10px; 
+}
+
+.logo {
+    color: white;
+    font-size: 2rem; 
+    margin-left: 1em; 
+}
+
+.circular-button {
+    background-color: #dfbf43;
+    color: white; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
+    transition: all 0.3s; 
+}
+
+.circular-button:hover {
+    background-color: #FF4500; 
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7); 
+}
+
+.circular-button i {
+    font-size: 1.5em; 
+}
+
+.container_query_bar{
+    margin-top: 1em;
+    justify-content: center;
+    background-color: #292c33;
+    height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.query_bar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+
+.query_input{
+    width: 80%; 
+    padding: 10px; 
+    font-size: 1em; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    background-color: #f9f9f9; 
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    border-color: #FF6347; 
+    outline: none; 
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+}
+
+.query_button{
+    background-color: #dfbf43; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    transition: all 0.3s;
+}
+
+.query_button:hover {
+    background-color: #FF4500; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.query_button i {
+    font-size: 1em;
+}
+
+.icon-grid {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* 4 columnas, cada una ocupa igual espacio */
+    gap: 10px;
+    justify-items: center; 
+}
+
+.icon-item {
+    background-color: #dfbf43; 
+    border-radius: 10px; 
+    padding: 10px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    color: white;
+}
+
+.icon-item:hover {
+    background-color: #FF6347; 
+    color: white; 
+    transform: scale(1.1);
+}
+
+.icon-item i {
+    font-size: 2em; 
+}
+
+.product_item{
+    border-radius: 10px; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+
+.container_products{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+
+}
+
+
+/*Cosas que aun no se como funcionan pero hacen que esto sea responsive xd */
+
+@media (max-width: 768px) { /* Pantallas más pequeñas */
+    .logo {
+        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        margin-left: 0.5em; /* Reduce el margen */
+    }
+
+    .circular-button {
+        width: 40px; /* Reduce el tamaño del botón */
+        height: 40px; /* Reduce el tamaño del botón */
+    }
+    .container {
+        border-radius: 20px; /* Reduce el radio para pantallas más pequeñas */
+        padding: 5px; /* Reduce el padding interno */
+    }
+
+    .container_query_bar{
+        border-radius: 20px; /* Reduce el radio para pantallas más pequeñas */
+        padding: 5px; /* Reduce el padding interno */
+    }
+}
+
+@media (max-width: 768px) { /* Pantallas medianas */
+    .icon-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) { /* Pantallas pequeñas */
+    .icon-grid {
+        grid-template-columns: repeat(2, 1fr); /* Una columna en pantallas pequeñas */
+    }
+
+    .icon-item {
+        padding: 10px; /* Menos espaciado interno */
+    }
+
+    .icon-item i {
+        font-size: 1.5em; /* Tamaño del icono más pequeño */
+    }
+}

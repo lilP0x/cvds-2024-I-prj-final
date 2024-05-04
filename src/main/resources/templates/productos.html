@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_productos.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>TopGear</title>
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <h2 class="logo">LOGO</h2>
+        </div>
+        <div>
+            <button class="circular-button" onclick="goToCarrito()">
+                <i class="fas fa-shopping-cart"></i> 
+            </button>
+        </div>
+    </div>
+
+    <div class="container_query_bar">
+        <form class="query_bar" action="/search" method="GET"> 
+            <input  type="search" name="q" placeholder="Buscar..." class="query_input">
+            <button type="submit" class="query_button">
+                <i class="fas fa-search"></i> 
+            </button>
+        </form>
+    </div>
+
+    <div class="container_title">
+        <h2>¿Que servicio o producto necesitas?</h2>
+    </div>
+
+    <div class="container_products">
+
+        <div class="product_item">
+            <div class="container">
+                <h2>
+                    Identificar fallas
+                </h2>
+            </div>
+        </div>
+       
+        <div class="product_item">
+            <div class="container">
+                <h2>
+                    Realizar Revision 
+                </h2>
+            </div>
+        </div>
+
+
+        <div class="product_item">
+            <div class="container">
+                <h2>
+                    Mantenimiento
+                </h2>
+            </div>
+        </div>
+
+        <div class="product_item">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <div class="product_item">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <div class="product_item">
+            <div class="container">
+
+            </div>
+        </div>
+        
+        <div class="product_item">
+            <div class="container">
+
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+
+    <div class="container_social_media">
+        
+
+        <div class="icon-grid">
+            <div class="icon-item" onclick="handleClick('instagram')">
+                <i class="fab fa-instagram"></i> 
+            </div>
+            <div class="icon-item" onclick="handleClick('whatsapp')">
+                <i class="fab fa-whatsapp"></i> 
+            </div>
+        </div>
+    </div>
+
+    <a href="feature_public.html">Volver</a>
+    
+    <script>
+        function goToCarrito() {
+
+            window.location.href = "carrito.html";
+        }
+
+        function handleClick(platform) {
+            console.log(`Icono de ${platform} clickeado`);
+        }
+    </script>
+
+</body>
+</html>
