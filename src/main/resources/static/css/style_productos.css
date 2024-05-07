@@ -1,101 +1,104 @@
-body{
-    background-color: #040404 ;
+body {
+    background-color: #040404;
 }
 
-h2{
+h2 {
     color: white;
 }
-
 
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; 
-    height: 10vh; 
-    background-color: #292c33; /*Esto lo cambie*/
-
+    align-items: center;
+    height: 14vh;
+    background-color: #292c33;
     border-radius: 30px;
-    padding: 10px; 
+    padding: 10px;
+}
+
+.ingesa{
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    color: white;
-    font-size: 2rem; 
-    margin-left: 1em; 
+    max-width: 100%;
+    height: auto;
+
 }
 
 .circular-button {
     background-color: #dfbf43;
-    color: white; 
-    border-radius: 50%; 
-    width: 50px; 
-    height: 50px; 
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
-    transition: all 0.3s; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
 }
 
 .circular-button:hover {
-    background-color: #FF4500; 
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7); 
+    background-color: #FF4500;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 .circular-button i {
-    font-size: 1.5em; 
+    font-size: 1.5em;
 }
 
-.container_query_bar{
+.container_query_bar {
     margin-top: 1em;
     justify-content: center;
-    background-color: #292c33;
+    background-color: #040404;
     height: 4vh;
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     border-radius: 15px;
     padding: 10px;
 }
 
-.query_bar{
+.query_bar {
     display: flex;
-    width: 100%;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    width: 100%; /* Asegura que el formulario ocupa todo el ancho */
 }
 
-
-.query_input{
+.query_input {
     width: 80%; 
-    padding: 10px; 
-    font-size: 1em; 
-    border: 2px solid #ccc; 
-    border-radius: 10px; 
-    background-color: #f9f9f9; 
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
     transition: all 0.3s;
 }
 
-.search-input:focus {
-    border-color: #FF6347; 
-    outline: none; 
+.query_input:focus {
+    border-color: #FF6347;
+    outline: none;
     box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
 }
 
-.query_button{
-    background-color: #dfbf43; 
-    color: white; 
-    border: none; 
-    padding: 10px; 
-    border-radius: 10px; 
-    cursor: pointer; 
+.query_button {
+    background-color: #dfbf43;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
 .query_button:hover {
-    background-color: #FF4500; 
+    background-color: #FF4500;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -104,85 +107,131 @@ h2{
 }
 
 .icon-grid {
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); /* 4 columnas, cada una ocupa igual espacio */
-    gap: 10px;
-    justify-items: center; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 10px; /* Ajusta el espaciado entre elementos */
+    justify-items: center;
 }
 
 .icon-item {
-    background-color: #dfbf43; 
-    border-radius: 10px; 
-    padding: 10px; 
-    text-align: center; 
-    cursor: pointer; 
-    transition: all 0.3s; 
+    background-color: #dfbf43;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
     color: white;
 }
 
 .icon-item:hover {
-    background-color: #FF6347; 
-    color: white; 
+    background-color: #FF6347;
     transform: scale(1.1);
 }
 
 .icon-item i {
-    font-size: 2em; 
+    font-size: 2em;
 }
 
-.product_item{
+.product_item {
+    text-align: center;
     border-radius: 10px; 
-    padding: 10px; 
-    text-align: center; 
+}
+
+.container_products {
+    display: flex; 
+    /*flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: center; 
+    gap: 20px; 
+    padding: 20px; 
+}
+
+.container_product {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container_product img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.container_product label {
+    margin-top: 10px; 
+    color: white; 
 }
 
 
-.container_products{
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-
+.product_item {
+    border-radius: 10px;
+    width: 100px; /* Ancho fijo para mantener consistencia */
+    height: 100px;
+    transition: all 0.3s;
 }
 
+.container img {
+    flex-shrink: 0; /* El logo no se reduce más allá de su tamaño natural */
+    max-width: 100px; /* Ancho máximo para el logo */
+    height: auto; /* Mantiene la proporción */
+}
 
-/*Cosas que aun no se como funcionan pero hacen que esto sea responsive xd */
+.product_item:hover {
+    transform: scale(1.05); /* Efecto de hover para interactividad */
+}
 
-@media (max-width: 768px) { /* Pantallas más pequeñas */
-    .logo {
-        font-size: 1.5rem; /* Reduce el tamaño del texto */
-        margin-left: 0.5em; /* Reduce el margen */
+.container_product {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px; /* Espaciado interno */
+}
+
+.container_product img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
     }
 
     .circular-button {
-        width: 40px; /* Reduce el tamaño del botón */
-        height: 40px; /* Reduce el tamaño del botón */
-    }
-    .container {
-        border-radius: 20px; /* Reduce el radio para pantallas más pequeñas */
-        padding: 5px; /* Reduce el padding interno */
+        width: 40px;
+        height: 40px;
     }
 
-    .container_query_bar{
-        border-radius: 20px; /* Reduce el radio para pantallas más pequeñas */
-        padding: 5px; /* Reduce el padding interno */
+    .logo {
+        font-size: 1.5rem;
+        margin-left: 0.5em;
+    }
+
+    .container_products {
+        gap: 10px; 
+    }
+
+    .product_item {
+        width: 100px;
+        height: 100px;
     }
 }
 
-@media (max-width: 768px) { /* Pantallas medianas */
+@media (max-width: 480px) {
     .icon-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-    }
-}
-
-@media (max-width: 480px) { /* Pantallas pequeñas */
-    .icon-grid {
-        grid-template-columns: repeat(2, 1fr); /* Una columna en pantallas pequeñas */
+        grid-template-columns: repeat(1, 1fr); /* Una columna para pantallas más pequeñas */
     }
 
     .icon-item {
-        padding: 10px; /* Menos espaciado interno */
+        padding: 10px;
     }
 
     .icon-item i {
-        font-size: 1.5em; /* Tamaño del icono más pequeño */
+        font-size: 1.5em; /* Tamaño del icono más pequeño para pantallas pequeñas */
     }
 }

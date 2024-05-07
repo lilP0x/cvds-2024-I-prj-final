@@ -39,6 +39,19 @@ body {
     box-shadow: 2px 2px 4px #022236, -2px -2px 4px #082040; 
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container img {
+    flex-shrink: 0; /* El logo no se reduce más allá de su tamaño natural */
+    max-width: 100px; /* Ancho máximo para el logo */
+    height: auto; /* Mantiene la proporción */
+}
+
+
 .container_item select {
     flex-grow: 1;
     height: 100%;
