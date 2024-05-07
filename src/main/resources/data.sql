@@ -12,3 +12,5 @@ INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcio
 VALUES ('12347', 'Producto C', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
 
 
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12348', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
