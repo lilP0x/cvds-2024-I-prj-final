@@ -52,6 +52,11 @@ function fetchAndDisplayProducts() {
                 productItem.appendChild(productLink);
 
                 container.appendChild(productItem);
+
+
+                const productButton = document.createElement('button');
+
+                container.appendChild(productButton);
             });
         })
         .catch(error => console.error('Error fetching products:', error));

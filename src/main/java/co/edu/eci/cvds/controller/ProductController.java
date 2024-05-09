@@ -25,7 +25,7 @@ public class ProductController {
     public String showProduct(){
         return "producto";
     }
-
+    
     @GetMapping("/carrito")
     public String getMethodName() {
         return "carrito";
