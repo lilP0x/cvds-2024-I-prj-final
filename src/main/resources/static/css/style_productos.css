@@ -109,6 +109,7 @@ h2 {
 .icon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    justify-content: center;    
     gap: 10px; /* Ajusta el espaciado entre elementos */
     justify-items: center;
 }
@@ -138,19 +139,19 @@ h2 {
 }
 
 .container_products {
-    display: flex; 
-    /*flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    justify-content: center; 
-    gap: 20px; 
-    padding: 20px; 
-}
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    width: 66%; 
+    margin: 0 auto; 
+}   
+   
 
 .container_product {
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    align-items: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 .container_product img {
@@ -165,27 +166,27 @@ h2 {
 
 
 .product_item {
-    border-radius: 10px;
-    width: 100px; /* Ancho fijo para mantener consistencia */
+    margin: 0;
+    width: 100px; 
     height: 100px;
     transition: all 0.3s;
 }
 
 .container img {
-    flex-shrink: 0; /* El logo no se reduce más allá de su tamaño natural */
-    max-width: 100px; /* Ancho máximo para el logo */
-    height: auto; /* Mantiene la proporción */
+    flex-shrink: 0; 
+    max-width: 100px; 
+    height: auto; 
 }
 
 .product_item:hover {
-    transform: scale(1.05); /* Efecto de hover para interactividad */
+    transform: scale(1.05); 
 }
 
 .container_product {
     display: flex;
     justify-content: center; 
     align-items: center;
-    padding: 10px; /* Espaciado interno */
+    padding: 10px; 
 }
 
 .container_product img {
@@ -196,6 +197,10 @@ h2 {
 a {
     text-decoration: none; /* Elimina el subrayado por defecto */
 }
+
+/* Aqui empiezan cosas que ayudan al modal*/
+
+
 
 @media (max-width: 768px) {
     .container {
@@ -233,5 +238,20 @@ a {
 
     .icon-item i {
         font-size: 1.5em; /* Tamaño del icono más pequeño para pantallas pequeñas */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container_products {
+        grid-template-columns: repeat(3, 1fr); /* Cambia el número de columnas según el ancho de pantalla */
+        max-width: 600px; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .container_products {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta el número de columnas para pantallas pequeñas */
+        max-width: 400px; /* Ajusta el ancho para pantallas muy pequeñas */
     }
 }
