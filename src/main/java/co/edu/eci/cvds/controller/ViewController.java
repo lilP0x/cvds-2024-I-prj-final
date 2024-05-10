@@ -12,5 +12,4 @@ public class ViewController {
         return "productos"; 
     }
 
-  
 }
