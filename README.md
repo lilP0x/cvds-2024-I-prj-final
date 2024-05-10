@@ -29,4 +29,3 @@ _Periodo académico, Nombre del Curso, Nombre de los Integrantes, Nombre del Pro
     - Imagen del 'sprint-backlog'
 
 
-### Esto es una prueba
