@@ -1,1 +1,40 @@
 INSERT INTO CONFIGURATION (PROPIEDAD, VALOR) VALUES ('1', 'Valor 1');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12345', 'Producto A', 100000, 10, 'Breve descripción', 'Descripción técnica', 'Categoría 1', 15, 'Usuario tipo 1', 'mechanic.png');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12346', 'Producto B', 200000, 20, 'Breve descripción B', 'Descripción técnica B', 'Categoría 2', 18, 'Usuario tipo 2', 'car-diagnostics.png');
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12347', 'Producto C', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12348', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('124338', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('122234348', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12312543448', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('123482342', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('123422348', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('1231423448', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');
+
+
+INSERT INTO PRODUCTO (id, nombre, valor, descuento, descripcionBreve, descripcionTecnica, categoria, impuesto, tipoUsuario, iconUrl) 
+VALUES ('12234232348', 'Producto D', 250000, 15, 'Breve descripción C', 'Descripción técnica C', 'Categoría 3', 12, 'Usuario tipo 3', 'maintenance.png');

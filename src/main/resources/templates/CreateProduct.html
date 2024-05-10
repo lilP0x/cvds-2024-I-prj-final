@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CreateProduct</title>
+    <link rel="stylesheet" href="css/style_createProduct.css">
+    
+</head>
+<body>
+    <div class="createProduct-box">
+        <h1>Adicionar el producto</h1><br>
+        <form id="createProductForm" action="ValidateCreate.html">
+            <!-- DescriptionB -->
+            <div>
+                <label>
+                    <span class="required">Descripción breve: </span>
+                </label>
+                <input type="text" name="descriptionB" value=""  maxlength="200" required />
+            </div>
+
+            <!-- DescriptionT -->
+            <div>
+                <label>
+                    <span class="required">Descripción Técnica: </span>
+                </label>
+                <input type="text" name="descriptionT" value=""  maxlength="300" required />
+            </div>
+            
+            <!--Categoria-->
+            <div class="category-selection">
+                <label for="category">Categoría:</label>
+                <div class="custom-select">
+                    <select name="category" id="category">
+                        <option value="servicio">Servicio</option>
+                        <option value="producto">Producto</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Campos adicionales -->
+            <div class="additional-fields">
+                <div class="row">
+                    <div>
+                        <label for="valor">Valor:</label>
+                        <input type="text" name="valor" id="valor">
+                    </div>
+                    <div>
+                        <label for="moneda">Moneda:</label>
+                        <input type="text" name="moneda" id="moneda">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="descuento">Descuento:</label>
+                        <input type="number" name="descuento" id="descuento" min="0" max="100" value="0">
+                    </div>
+                    <div>
+                        <label for="impuestos">Impuestos:</label>
+                        <input type="number" name="impuestos" id="impuestos" min="0" max="100" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
+    <script src="createProduct.js"></script>
+</body>
+</html>

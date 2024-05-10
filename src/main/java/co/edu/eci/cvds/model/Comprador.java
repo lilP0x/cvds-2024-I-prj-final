@@ -1,27 +1,40 @@
 package co.edu.eci.cvds.model;
 
-public class Comprador extends Usuario {
+import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "COMPRADOR")
+public class Comprador {
+    @Id
+    @Column(name = "ID")
+    private String id;
+    
+    @Column(name = "NOMBRE")
+    private String nombre;
+    
+    @Column(name = "TIPO_ID")
+    private String tipoId;
+    
+    @Column(name = "NUMERO_ID")
+    private String numeroId;
+    
+    @Column(name = "CORREO")
+    private String correo;
+    
+    @Column(name = "DIRECCION")
+    private String direccion;
+    
+    @Column(name = "ESPECIFICACIONES")
     private String especificaciones;
+    
+    @Column(name = "TIPO")
     private String tipo;
-    private String modoPago;
-
-    public Comprador(String nombre, String tipoId, int numeroId, String correo, String direccion,
-                     String especificaciones, String tipo, String modoPago) {
-        super(nombre, tipoId, numeroId, correo, direccion);
-        this.especificaciones = especificaciones;
-        this.tipo = tipo;
-        this.modoPago = modoPago;
-    }
-
-    @Override
-    public void mostrarInformacion() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Tipo de ID: " + tipoId);
-        System.out.println("Número de ID: " + numeroId);
-        System.out.println("Correo: " + correo);
-        System.out.println("Dirección: " + direccion);
-        System.out.println("Especificaciones: " + especificaciones);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Modo de Pago: " + modoPago);
-    }
+    
+    @Column(name = "MODO_DE_PAGO")
+    private String modoDePago;
 }

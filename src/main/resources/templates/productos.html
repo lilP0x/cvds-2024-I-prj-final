@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style_productos.css"> <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Iconos -->
+    <script src="/js/productsScript.js"></script>
+    <title>Productos - TopGear</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <img class="logo" src="/static/logo_2.png" alt="TopGear Logo">
+        </div>
+        <div>
+            <button class="circular-button" onclick="goToCarrito()">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container_query_bar">
+        <form class="query_bar" action="/search" method="GET"> 
+            <input type="search" name="q" placeholder="Buscar..." class="query_input">
+            <button type="submit" class="query_button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <h2>
+            ¿Que producto o servicio necesitas? 
+        </h2>
+    </div>
+
+    <div class="container_products" id="productos-container">
+        <!-- Productos dinámicos se insertarán aquí -->
+    </div>
+
+    <div class="ingesa">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <div class="container_social_media">
+        <div class="icon-grid">
+            <div class="icon-item" onclick="handleClick('instagram')">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <div class="icon-item" onclick="handleClick('whatsapp')">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+        </div>
+    </div>
+
+    <a href="feature_public.html">Volver</a>
+
+</body>
+</html>
