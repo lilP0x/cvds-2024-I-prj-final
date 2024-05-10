@@ -50,13 +50,10 @@ function fetchAndDisplayProducts() {
                 const productItem = document.createElement('div');
                 productItem.classList.add('product_item');
                 productItem.appendChild(productLink);
-
                 container.appendChild(productItem);
 
-
                 const productButton = document.createElement('button');
-
-                container.appendChild(productButton);
+                productContainer.appendChild(productButton);
             });
         })
         .catch(error => console.error('Error fetching products:', error));
