@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función para mostrar los detalles del producto en el DOM
 function displayProductDetails(product) {
-    const productContainer = document.getElementById('product-details'); // Contenedor donde se mostrarán los detalles del producto
+    const productContainer = document.getElementById('product-details'); 
 
     // Añadir información del producto
     const productName = document.createElement('h2');
