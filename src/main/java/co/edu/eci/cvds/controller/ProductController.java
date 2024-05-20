@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import co.edu.eci.cvds.model.Product;
+import co.edu.eci.cvds.service.ConfigurationService;
 import co.edu.eci.cvds.service.ProductService;
+import org.springframework.ui.Model;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -16,7 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController { 
 
     
-    @GetMapping("/productos") 
+    private final ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping("/Productos") 
     public String showProductosPage() {
         return "productos"; 
     }
@@ -30,6 +37,23 @@ public class ProductController {
     public String getMethodName() {
         return "carrito";
     }
+
+    @GetMapping("/productosCat")
+    public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
+    if (categoria != null && !categoria.isEmpty()) {
+        List<Product> productosFiltrados = productService.getProductsByCategoria(categoria);
+        model.addAttribute("productos", productosFiltrados);
+        System.out.println("si filtro");
+    } else {
+        List<Product> allProducts = productService.getAllProducts();
+        model.addAttribute("productos", allProducts);
+        System.out.println("else");
+
+    }
+    return "productos";
+}
+
+
     
     
 }

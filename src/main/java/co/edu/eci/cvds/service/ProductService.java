@@ -5,10 +5,12 @@ import co.edu.eci.cvds.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Service;
+import java.text.NumberFormat;
 import java.util.Optional; 
 
 
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class ProductService {
@@ -36,8 +38,9 @@ public class ProductService {
         return productRepository.findByNombre(name).get(1);
     }
 
-     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public List<Product> getAllProducts() {
+        List<Product> products = productRepository.findAll();
+        return products;
     }
 
     public Product getProductById(String id) {
@@ -49,10 +52,14 @@ public class ProductService {
 
     }
 
+    public List<Product> getProductsByCategoria(String categoria) {
+        return productRepository.findByCategoria(categoria);
+    }
+
     public Product updateProduct(String id, Product product) {
         Optional<Product> existingProductOpt = productRepository.findById(id);
 
-        if (existingProductOpt.isPresent()) { // Si el producto existe
+        if (existingProductOpt.isPresent()) { 
             Product existingProduct = existingProductOpt.get();
 
             existingProduct.setNombre(product.getNombre());
@@ -65,7 +72,7 @@ public class ProductService {
             existingProduct.setTipoUsuario(product.getTipoUsuario());
             existingProduct.setIconUrl(product.getIconUrl());
 
-            return productRepository.save(existingProduct); // Guardar y devolver el producto
+            return productRepository.save(existingProduct); 
         } else {
             throw new RuntimeException("Product with ID " + id + " not found"); // Lanzar excepción si no se encuentra
         }

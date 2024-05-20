@@ -31,4 +31,5 @@ public class Product {
     private String tipoUsuario;
     @Column(name = "ICONURL")
     private String iconUrl;
+
 }
