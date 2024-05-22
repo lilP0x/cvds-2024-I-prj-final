@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style_productos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style_productos.css"> <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Iconos -->
     <script src="/js/productsScript.js"></script>
     <title>Productos - TopGear</title>
 </head>
+
 <body>
     <div class="container">
         <div>
@@ -15,7 +17,7 @@
             <a class="query_button" href="/login">Login</a><br>
         </div>
         <div>
-            <button class="circular-button" onclick="goToCarrito()">
+            <button class="circular-button" onclick="redirectToCarrito()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
@@ -36,6 +38,7 @@
     </div>
 
     <div class="container_filter">
+
         <form action="/products/productosCat" method="GET">
             <button class="normal_button" name="categoria" id="categoria" type="submit" value=""> Todas</button>
         </form>
@@ -49,25 +52,25 @@
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 3"> cate3</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 3"> cate1</button>
         </form>
+
+        
+
     </div>
 
+
     <div class="container_products">
+        <!-- Productos dinámicos se insertarán aquí -->
         <div th:each="producto : ${productos}" class="product_info_container">
             <a th:href="@{'/products/' + ${producto.id}}">
                 <div class="container_product">
                     <h2 th:text="${producto.nombre}"></h2>
-                    <img th:src="${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
-                    <label>
-                        <!-- Precio original tachado si hay descuento -->
-                        <span th:if="${producto.descuento > 0}" class="original-price" th:text="${#numbers.formatDecimal(producto.valor, 1, 2)}"></span>
-                        <!-- Precio con descuento -->
-                        <span th:if="${producto.descuento > 0}" class="discounted-price" th:text="${#numbers.formatDecimal(producto.valor - (producto.valor * producto.descuento), 1, 2)}"></span>
-                        <!-- Precio original sin descuento -->
-                        <span th:if="${producto.descuento == 0}" th:text="${#numbers.formatDecimal(producto.valor, 1, 2)}"></span>
-                    </label>
-                    <button class="normal_button">Añadir al carrito</button>
+                    <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
+                    <label th:text="'Valor: ' + ${producto.valor}"></label>
+                    <a href="">
+                        <button class="normal_button">Añadir al carrito</button>
+                    </a>
                 </div>
             </a>
         </div>
@@ -85,5 +88,12 @@
     </div>
 
     <a href="feature_public.html">Volver</a>
+
+    <script>
+        function redirectToCarrito() {
+            window.location.href = "/products/carrito";
+        }
+    </script>
+   
 </body>
 </html>
