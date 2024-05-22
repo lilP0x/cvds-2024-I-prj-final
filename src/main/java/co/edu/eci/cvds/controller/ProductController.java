@@ -25,10 +25,13 @@ public class ProductController {
         return "productos";
     }
 
-    @GetMapping("/{id}")
-    public String showProduct() {
-        return "producto";
+    @GetMapping("/{productId}")
+    public String getProductDetails(@PathVariable String productId, Model model) {
+        Product producto = productService.getProductById(productId);
+        model.addAttribute("producto", producto);
+        return "producto"; 
     }
+    
 
     @GetMapping("/carrito")
     public String showCarrito(Model model) {
