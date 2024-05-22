@@ -17,7 +17,7 @@
             <a class="query_button" href="/login">Login</a><br>
         </div>
         <div>
-            <button class="circular-button" onclick="goToCarrito()">
+            <button class="circular-button" onclick="redirectToCarrito()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
@@ -38,17 +38,27 @@
     </div>
 
     <div class="container_filter">
+
+
         <form action="/products/productosCat" method="GET">
-            <label for="categoria">Filtrar por categoría:</label>
-            <select name="categoria" id="categoria">
-                <option value="">Todas las categorías</option>
-                <option value="Categoría 1">Categoría 1</option>
-                <option value="Categoría 2">Categoría 2</option>
-                <option value="Categoría 3">Categoría 3</option>
-                <!-- Agrega aquí todas las opciones de categoría que tengas -->
-            </select>
-            <button type="submit">Filtrar</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value=""> Todas</button>
         </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 1"> cate1</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 2"> cate2</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 3"> cate1</button>
+        </form>
+
+        
+
+>>>>>>> 82992eeecb8652ccae35a7c0c2df0db9a575f5d2
     </div>
 
 
@@ -61,7 +71,11 @@
                     <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
                     <label th:text="'Valor: ' + ${producto.valor}"></label>
                     <a href="">
+<<<<<<< HEAD
                         <button class="product_button">Añadir al carrito</button>
+=======
+                        <button class="normal_button">Añadir al carrito</button>
+>>>>>>> 82992eeecb8652ccae35a7c0c2df0db9a575f5d2
                     </a>
                 </div>
             </a>
@@ -81,7 +95,16 @@
 
     <a href="feature_public.html">Volver</a>
 
+<<<<<<< HEAD
    
 
+=======
+    <script>
+        function redirectToCarrito() {
+            window.location.href = "/products/carrito";
+        }
+    </script>
+   
+>>>>>>> 82992eeecb8652ccae35a7c0c2df0db9a575f5d2
 </body>
 </html>

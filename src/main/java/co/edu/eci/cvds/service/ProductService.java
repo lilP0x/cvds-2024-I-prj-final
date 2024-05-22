@@ -34,6 +34,17 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public double getValueWithDiscount(Product producto) {
+        if (producto.getDescuento() > 0) {
+            return producto.getValor() - (producto.getValor() * producto.getDescuento());
+        }
+        return producto.getValor();
+    }
+
+    public boolean haveDiscount(Product producto) {
+        return producto.getDescuento() > 0;
+    }
+
     public Product getProduct(String name){
         return productRepository.findByNombre(name).get(1);
     }

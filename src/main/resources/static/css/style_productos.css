@@ -97,6 +97,27 @@ h2 {
     transition: all 0.3s;
 }
 
+.normal_button {
+    background-color: #dfbf43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-grow: 1; /* Allow buttons to grow */
+    margin: 5px; /* Add margin to space out buttons */
+    text-align: center;
+}
+
+.normal_button:hover {
+    background-color: #1a1a1a; /* Change background to a dark shade */
+    color: white; /* Ensure text remains white */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Change shadow to white */
+}
+
+
+
 .query_button:hover {
     background-color: #FF4500;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -137,7 +158,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
     gap: 20px;
-    width: 66%; 
+    width: 80%; 
     margin: 0 auto; 
 }   
    
@@ -234,6 +255,26 @@ a{
 }
 
 
+.container_filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%; /* Ajustar el ancho del contenedor para que ocupe más espacio horizontal */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+
+
+.original-price {
+    text-decoration: line-through;
+    color: red;
+    margin-right: 10px; /* Añadir un poco de espacio después del precio original */
+}
+
+.discounted-price {
+    color: green;
+    font-weight: bold;
+}
 
 /* Aqui empiezan cosas que ayudan al modal*/
 
