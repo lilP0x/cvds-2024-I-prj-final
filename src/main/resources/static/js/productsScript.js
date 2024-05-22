@@ -1,8 +1,4 @@
 
-function goToCarrito() {
-    window.location.href = "carrito.html";
-}
-
 function handleClick(platform) {
     if (platform === 'instagram') {
         window.location.href = "https://www.instagram.com/topgearbogota/";
