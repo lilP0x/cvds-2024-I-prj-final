@@ -158,7 +158,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
     gap: 20px;
-    width: 66%; 
+    width: 80%; 
     margin: 0 auto; 
 }   
    
@@ -261,6 +261,19 @@ a{
     align-items: center;
     width: 30%; /* Ajustar el ancho del contenedor para que ocupe más espacio horizontal */
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+
+
+.original-price {
+    text-decoration: line-through;
+    color: red;
+    margin-right: 10px; /* Añadir un poco de espacio después del precio original */
+}
+
+.discounted-price {
+    color: green;
+    font-weight: bold;
 }
 
 /* Aqui empiezan cosas que ayudan al modal*/
