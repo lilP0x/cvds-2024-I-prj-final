@@ -32,7 +32,6 @@ public class ProductController {
         return "producto"; 
     }
     
-    
 
     @GetMapping("/carrito")
     public String showCarrito(Model model) {
