@@ -2,34 +2,55 @@ package co.edu.eci.cvds.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import co.edu.eci.cvds.model.Product;
 import co.edu.eci.cvds.service.ProductService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
-@RequestMapping("/products") 
-public class ProductController { 
+@RequestMapping("/products")
+public class ProductController {
 
-    
-    @GetMapping("/productos") 
+    private final ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping("/Productos")
     public String showProductosPage() {
-        return "productos"; 
+        return "productos";
     }
 
-    @GetMapping("/{id}")
-    public String showProduct(){
-        return "producto";
+    @GetMapping("/{productId}")
+    public String getProductDetails(@PathVariable String productId, Model model) {
+        Product producto = productService.getProductById(productId);
+        model.addAttribute("producto", producto);
+        return "producto"; 
     }
     
+
     @GetMapping("/carrito")
-    public String getMethodName() {
+    public String showCarrito(Model model) {
+        List<Product> productos = productService.getAllProducts(); // Obtener todos los productos o los productos del carrito
+        model.addAttribute("productos", productos);
         return "carrito";
     }
-    
-    
+
+    @GetMapping("/productosCat")
+    public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
+        if (categoria != null && !categoria.isEmpty()) {
+            List<Product> productosFiltrados = productService.getProductsByCategoria(categoria);
+            model.addAttribute("productos", productosFiltrados);
+            System.out.println("si filtro");
+        } else {
+            List<Product> allProducts = productService.getAllProducts();
+            model.addAttribute("productos", allProducts);
+            System.out.println("else");
+        }
+        return "productos";
+    }
 }

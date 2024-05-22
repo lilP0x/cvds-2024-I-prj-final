@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,24 @@
     <script src="/js/productsScript.js"></script>
     <title>Productos - TopGear</title>
 </head>
+
 <body>
     <div class="container">
         <div>
             <img class="logo" src="/static/logo_2.png" alt="TopGear Logo">
             <a class="query_button" href="/login">Login</a><br>
-
         </div>
         <div>
-            <button class="circular-button" onclick="goToCarrito()">
+            <button class="circular-button" onclick="redirectToCarrito()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
     </div>
 
     <div class="container_query_bar">
-        <form class="query_bar" action="/search" method="GET"> 
+        <form class="query_bar" action="/products/productosCat" method="GET">
             <input type="search" name="q" placeholder="Buscar..." class="query_input">
+            <input type="hidden" name="categoria" th:value="${categoria}">
             <button type="submit" class="query_button">
                 <i class="fas fa-search"></i>
             </button>
@@ -32,18 +34,45 @@
     </div>
 
     <div>
-        <h2>
-            ¿Que producto o servicio necesitas? 
-        </h2>
+        <h2>¿Qué producto o servicio necesitas?</h2>
     </div>
 
-    <div class="container_products" id="productos-container">
+    <div class="container_filter">
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value=""> Todas</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 1"> cate1</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 2"> cate2</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 3"> cate1</button>
+        </form>
+
+        
+
+    </div>
+
+
+    <div class="container_products">
         <!-- Productos dinámicos se insertarán aquí -->
-    </div>
-
-    <div class="ingesa">
-        <div class="container">
-
+        <div th:each="producto : ${productos}" class="product_info_container">
+            <a th:href="@{'/products/' + ${producto.id}}">
+                <div class="container_product">
+                    <h2 th:text="${producto.nombre}"></h2>
+                    <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
+                    <label th:text="'Valor: ' + ${producto.valor}"></label>
+                    <a href="">
+                        <button class="normal_button">Añadir al carrito</button>
+                    </a>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -60,5 +89,11 @@
 
     <a href="feature_public.html">Volver</a>
 
+    <script>
+        function redirectToCarrito() {
+            window.location.href = "/products/carrito";
+        }
+    </script>
+   
 </body>
 </html>

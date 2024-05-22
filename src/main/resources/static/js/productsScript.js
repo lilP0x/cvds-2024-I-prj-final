@@ -1,8 +1,4 @@
 
-function goToCarrito() {
-    window.location.href = "carrito.html";
-}
-
 function handleClick(platform) {
     if (platform === 'instagram') {
         window.location.href = "https://www.instagram.com/topgearbogota/";
@@ -11,55 +7,26 @@ function handleClick(platform) {
     }
 }
 
-function formatAsCurrency(value) {
-    const formatter = new Intl.NumberFormat('en-CO', {
-        style: 'currency',
-        currency: 'COP'
+document.addEventListener("DOMContentLoaded", function() {
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    }
+
+    // Seleccionar todos los elementos de etiqueta label que muestran el valor del producto
+    const valueLabels = document.querySelectorAll('.container_product label');
+
+    // Iterar sobre cada etiqueta de valor y formatear el texto como moneda colombiana
+    valueLabels.forEach(label => {
+        // Obtener el valor sin formato
+        const rawValue = parseFloat(label.textContent.split(':')[1]);
+
+        // Formatear el valor como moneda colombiana
+        const formattedValue = formatCurrency(rawValue);
+
+        // Actualizar el texto de la etiqueta con el valor formateado
+        label.textContent = formattedValue;
     });
-    return formatter.format(value);
-}
+});
 
-function fetchAndDisplayProducts() {
-    fetch('/api/products')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('productos-container');
-
-            data.forEach(product => {
-                const productContainer = document.createElement('div');
-                productContainer.classList.add('container_product');
-
-                if (product.iconUrl) {
-                    const productImage = document.createElement('img');
-                    productImage.src = product.iconUrl; 
-                    productImage.alt = `Imagen de ${product.nombre}`; 
-                    productContainer.appendChild(productImage);
-                }
-
-                if (product.valor != 0) {
-                    const productValue = document.createElement('label');
-                    productValue.textContent = formatAsCurrency(product.valor);
-                    productContainer.appendChild(productValue);
-                }
-
-
-                const productLink = document.createElement('a');
-                productLink.href = `/products/${product.id}`;
-                productLink.appendChild(productContainer);
-
-                const productItem = document.createElement('div');
-                productItem.classList.add('product_item');
-                productItem.appendChild(productLink);
-                container.appendChild(productItem);
-
-                const productButton = document.createElement('button');
-                productContainer.appendChild(productButton);
-            });
-        })
-        .catch(error => console.error('Error fetching products:', error));
-}
-
-// Llamar a la función para cargar y mostrar productos al cargar la página
-document.addEventListener('DOMContentLoaded', fetchAndDisplayProducts);
 
 

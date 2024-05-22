@@ -38,6 +38,8 @@ public class ProveedorService {
         return proveedorRepository.findAll();
     }
 
+    
+
     public Proveedor getProveedorById(String id) {
         Optional<Proveedor> proveedorOptional = proveedorRepository.findById(id);
         return proveedorOptional.orElse(null);

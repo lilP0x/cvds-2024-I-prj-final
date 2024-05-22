@@ -53,6 +53,11 @@ public class LoginController {
     }
 
 
+    @GetMapping("/cotizacion")
+    public String cotizacion() {
+        return "Cotizacion";
+    }
+
      @GetMapping("/CrudProduct")
     public String crudProduct() {
         return "CrudProduct";
