@@ -1,0 +1,322 @@
+body {
+    background-color: #040404;
+}
+
+h2 {
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 14vh;
+    background-color: #292c33;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.ingesa{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+
+}
+
+.circular-button {
+    background-color: #dfbf43;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.circular-button:hover {
+    background-color: #FF4500;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.circular-button i {
+    font-size: 1.5em;
+}
+
+.container_query_bar {
+    margin-top: 1em;
+    justify-content: center;
+    background-color: #040404;
+    height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.query_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 100%; /* Asegura que el formulario ocupa todo el ancho */
+}
+
+.query_input {
+    width: 80%; 
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: all 0.3s;
+}
+
+.query_input:focus {
+    border-color: #FF6347;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+}
+
+.query_button {
+    background-color: #dfbf43;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.normal_button {
+    background-color: #dfbf43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-grow: 1; /* Allow buttons to grow */
+    margin: 5px; /* Add margin to space out buttons */
+    text-align: center;
+}
+
+.normal_button:hover {
+    background-color: #1a1a1a; /* Change background to a dark shade */
+    color: white; /* Ensure text remains white */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Change shadow to white */
+}
+
+
+
+.query_button:hover {
+    background-color: #FF4500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.query_button i {
+    font-size: 1em;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    justify-content: center;    
+    gap: 10px; 
+    justify-items: center;
+}
+
+.icon-item {
+    background-color: #dfbf43;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.icon-item:hover {
+    background-color: #FF6347;
+    transform: scale(1.1);
+}
+
+.icon-item i {
+    font-size: 2em;
+}
+
+.container_products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    width: 66%; 
+    margin: 0 auto; 
+}   
+   
+
+.container_product {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    padding: 5px;
+}
+
+.container_product img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.container_product label {
+    margin-top: 10px; 
+    color: white; 
+}
+
+.container img {
+    flex-shrink: 0; 
+    max-width: 100px; 
+    height: auto; 
+}
+
+.product_item:hover {
+    transform: scale(1.05); 
+}
+
+.container_product {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+
+}
+
+.container_product img {
+    max-width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.product_item {
+    border: 2px solid white; 
+    border-radius: 10px; 
+    padding: 25px; 
+    margin: 0; 
+    transition: all 0.3s; 
+}
+
+.product_item:hover {
+    transform: scale(1.05); 
+    border-color: #FF6347; 
+}
+
+
+.product_info_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 10px; 
+    transition: all 0.3s; 
+}
+
+.product_info_container:hover {
+    border-color: #FF6347; 
+    transform: translateY(-5px); /* Desplazar ligeramente hacia arriba */
+}
+
+.product_button {
+    margin-top: 10px; 
+    background-color: #dfbf43;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.product_button:hover {
+    background-color: #FF4500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.container_filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%; /* Ajustar el ancho del contenedor para que ocupe más espacio horizontal */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+/* Aqui empiezan cosas que ayudan al modal*/
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .circular-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin-left: 0.5em;
+    }
+
+    .container_products {
+        gap: 10px; 
+    }
+
+    .product_item {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icon-grid {
+        grid-template-columns: repeat(1, 1fr); /* Una columna para pantallas más pequeñas */
+    }
+
+    .icon-item {
+        padding: 10px;
+    }
+
+    .icon-item i {
+        font-size: 1.5em; /* Tamaño del icono más pequeño para pantallas pequeñas */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container_products {
+        grid-template-columns: repeat(3, 1fr); /* Cambia el número de columnas según el ancho de pantalla */
+        max-width: 600px; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .container_products {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta el número de columnas para pantallas pequeñas */
+        max-width: 400px; /* Ajusta el ancho para pantallas muy pequeñas */
+    }
+}

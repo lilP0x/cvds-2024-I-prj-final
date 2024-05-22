@@ -1,0 +1,12 @@
+body {
+    background-color: #040404;
+    color: white;
+}
+
+
+.container_product{
+    display: flex;
+    justify-content: center;
+}
+
+

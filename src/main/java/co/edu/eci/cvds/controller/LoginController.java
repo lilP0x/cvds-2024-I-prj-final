@@ -31,9 +31,35 @@ public class LoginController {
         return LOGIN_PAGE;
     }
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public String register() {
         return "login/register";
     }
 
+     @GetMapping("/losePassword")
+    public String losePassword() {
+        return "LosePassword";
+    }
+
+     @GetMapping("/selectedMode")
+    public String selectedMode() {
+        return "SelectedMode";
+    }
+
+    
+    @GetMapping("/administration")
+    public String administration() {
+        return "Administration";
+    }
+
+
+     @GetMapping("/CrudProduct")
+    public String crudProduct() {
+        return "CrudProduct";
+    }
+
+    @GetMapping("/create")
+    public String createProduct() {
+        return "CreateProduct";
+    }
 }
