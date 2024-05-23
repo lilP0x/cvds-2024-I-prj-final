@@ -34,10 +34,10 @@ public class CarritoService {
         if (producto != null) {
             Carrito carrito = obtenerCarritoActual();
             carrito.getProducts().add(producto);
-            //producto.setCarritos(carrito);
             carritoRepository.save(carrito);
         }
     }
+    
     public Carrito obtenerCarritoActual() {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();

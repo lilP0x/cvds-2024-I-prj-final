@@ -40,31 +40,39 @@ public class ProductController {
     }
     
 
-    @GetMapping("/carrito")
-    public String showCarrito(Model model) {
-        // Implementa la lógica para obtener el contenido del carrito y pasarlos al modelo
+    @GetMapping("/carritoView")
+    public String showCarritoView(Model model) {
         List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
         model.addAttribute("productosEnCarrito", productosEnCarrito);
         return "carrito";
     }
     
+
+    @GetMapping("/carrito")
+    public String showCarrito(Model model) {
+        // Implementa la lógica para obtener el contenido del carrito y pasarlos al modelo
+        List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
+        model.addAttribute("productosEnCarrito", productosEnCarrito);
+        return "redirect:/products/productosCat";
+    }
+    
     @PostMapping("/add-to-cart/{productId}")
     public String addToCart(@PathVariable String productId) {
         carritoService.agregarProductoAlCarrito(productId);
-        return "redirect:/products/carrito";
+        return "redirect:/products/productosCat";
     }
-
+    
 
     @GetMapping("/productosCat")
     public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
         if (categoria != null && !categoria.isEmpty()) {
             List<Product> productosFiltrados = productService.getProductsByCategoria(categoria);
             model.addAttribute("productos", productosFiltrados);
-            //System.out.println("si filtro");
+            System.out.println("si filtro");
         } else {
             List<Product> allProducts = productService.getAllProducts();
             model.addAttribute("productos", allProducts);
-            //System.out.println("else");
+            System.out.println("else");
         }
         return "productos";
     }
@@ -95,5 +103,5 @@ public class ProductController {
     }
 }
 
-}
+
 
