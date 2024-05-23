@@ -25,7 +25,9 @@
         </div>
 
         <div>
-            <button>Agregar al carrito</button>
+            <form th:action="@{/products/add-to-cart/{productId}(productId=${producto.id})}" method="post">
+                <button type="submit" class="normal_button">Añadir al carrito</button>
+            </form>
         </div>
     </div>
 </body>

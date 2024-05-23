@@ -2,8 +2,14 @@ body {
     background-color: #040404;
 }
 
-h2 {
+h2 ,p {
     color: white;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -15,6 +21,41 @@ h2 {
     background-color: #292c33;
     border-radius: 30px;
     padding: 10px;
+}
+
+.super_container_social_media{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #292c33;
+    border-radius: 5px;
+    padding: 30px; 
+}
+
+.links {
+    text-decoration: none; 
+    color: white; 
+    font-size: 1.2em; 
+}
+
+.links:hover {
+    color: #dfbf43; /* Asegura que el texto siga siendo blanco */
+}
+
+
+.container_social_media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_social_media > div {
+    width: calc(60% - 10px); /* Ancho del 50% con espacio entre columnas */
+    padding: 20px;
+}
+
+.container_social_media p {
+    font-size: 130%; /* Reducir el tamaño de fuente */
+    line-height: 0.8; /* Reducir el espacio vertical entre líneas */
 }
 
 .ingesa{
@@ -128,8 +169,7 @@ h2 {
 }
 
 .icon-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    display: flex;
     justify-content: center;    
     gap: 10px; 
     justify-items: center;
