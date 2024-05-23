@@ -128,7 +128,7 @@ h2, p {
 
 .query_button {
     background-color: #fcb900;
-    color: white;
+    color: #040404;
     border: none;
     padding: 10px;
     border-radius: 10px;
@@ -278,7 +278,7 @@ a {
 
 .normal_button {
     background-color: #fcb900;
-    color: white;
+    color: #040404;
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
