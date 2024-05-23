@@ -3,97 +3,72 @@ body {
     padding: 0;
     font-family: sans-serif;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.5); 
-    background: linear-gradient(to bottom, #040404,#3c3c3c,#7c7c7c,#747474);
+    background: linear-gradient(to bottom, #040404, #3c3c3c, #7c7c7c, #747474);
 }
 
 .carrito-box {
-    width: 500px;
-    height: 420px;
+    width: 80%;
+    max-width: 900px;
     background: #0c1112;
     color: #edf1f2;
-    top: 50%;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 20px;
     border-radius: 10px; 
-    box-shadow: 0px 0px 2px 2px rgba(223, 191, 67, 0.5);
+    box-shadow: 0px 0px 10px 2px rgba(223, 191, 67, 0.5);
+    box-sizing: border-box;
 }
 
-.carrito-box .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto; 
-    margin-bottom: 20px;
-}
-
-.carrito-box h1{
-    margin : 0; 
-    padding: 0 0 20 px;
-    text-align: center;
-    font-size: 22px;
-}
-
-.carrito-box label{
-    margin : 0; 
-    padding: 0;
-    font-weight: bold;
-}
-
-.carrito-box input {
+table {
     width: 100%;
-    margin-bottom: 20px;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.carrito-box a {
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: #dfbf43;
+th, td {
+    border: 1px solid #edf1f2;
+    padding: 10px;
+    text-align: left;
 }
 
-.carrito-box a:hover {
-    color: #c2212a;
+th {
+    background-color: #3c3c3c;
 }
 
-.carrito-box input[type="submit"]:hover {
-    background-color: #c2212a; 
-    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.7); 
+td.delete-cell {
+    text-align: center;
+    vertical-align: middle;
 }
 
-.botones button {
-    border: none;
-    outline: none;
-    width: 200px; 
-    height: 40px; 
-    background-color: #dfbf43;
-    color: #edf1f2;
-    font-size: 18px;
-    border-radius: 20px;
+.delete-icon {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-right: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
-}
-
-.botones button:last-child {
-    margin-right: 0; 
-    margin-top: 8px;
-}
-
-.botones button:hover {
-    background-color: #c2212a;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12); 
 }
 
 .botones {
-    display: flex; 
-    justify-content: center; 
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .botones form {
-    margin-right: 10px; 
+    margin: 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #dfbf43;
+    color: #0c1112;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #c2212a;
+    color: #edf1f2;
 }

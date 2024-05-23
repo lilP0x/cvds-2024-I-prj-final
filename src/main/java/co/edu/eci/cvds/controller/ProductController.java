@@ -9,8 +9,6 @@ import co.edu.eci.cvds.service.ProductService;
 import co.edu.eci.cvds.service.CarritoService;
 import co.edu.eci.cvds.model.Carrito;
 
-
-
 import java.util.List;
 
 @Controller
@@ -38,8 +36,8 @@ public class ProductController {
         model.addAttribute("producto", producto);
         return "producto"; 
     }
-    
 
+    
     @GetMapping("/carritoView")
     public String showCarritoView(Model model) {
         List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
@@ -77,7 +75,6 @@ public class ProductController {
         return "productos";
     }
 
-
     @GetMapping("/administration")
     public String showProductosPrivPage(Model model) {
         List<Product> productos = productService.getAllProducts();
@@ -97,11 +94,23 @@ public class ProductController {
         return "ReadProduct";
     }
 
+    @GetMapping("/update")
+    public String updateProduct() {
+        return "UpdateProduct";
+    }
+
     @GetMapping("/delete")
     public String deleteProduct() {
         return "DeleteProduct";
     }
-}
 
+    @GetMapping("/edit/{productId}")
+    public String editProduct(@PathVariable String productId, Model model) {
+        Product producto = productService.getProductById(productId);
+        model.addAttribute("producto", producto);
+        return "createProduct";
+    }
+    
+}
 
 
