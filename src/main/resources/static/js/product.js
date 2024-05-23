@@ -1,8 +1,20 @@
-function formatAsCurrency(value) {
-    const formatter = new Intl.NumberFormat('en-CO', {
-        style: 'currency',
-        currency: 'COP'
+
+document.addEventListener("DOMContentLoaded", function() {
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    }
+
+    // Seleccionar todos los elementos de etiqueta label que muestran el valor del producto
+    const valueLabels = document.querySelectorAll('.login-box label');
+
+    valueLabels.forEach(label => {
+        const rawValue = parseFloat(label.textContent.split(':')[1]);
+
+        const formattedValue = formatCurrency(rawValue);
+
+        label.textContent = formattedValue;
     });
+<<<<<<< HEAD
     return formatter.format(value);
 }
 
@@ -69,3 +81,6 @@ function displayProductDetails(product) {
         productContainer.appendChild(productDescription);
     }
 }
+=======
+});
+>>>>>>> 606fb7b7e7f3a961531f26e43fc59b3b0c3ea46c

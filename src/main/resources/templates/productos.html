@@ -13,11 +13,11 @@
 <body>
     <div class="container">
         <div>
-            <img class="logo" src="/static/logo_2.png" alt="TopGear Logo">
+            <img class="logo" src="/static/LogoTopGear.svg" alt="TopGear Logo">
             <a class="query_button" href="/login">Login</a><br>
         </div>
         <div>
-            <button class="circular-button" onclick="goToCarrito()">
+            <button class="circular-button" onclick="redirectToCarrito()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
@@ -33,21 +33,31 @@
         </form>
     </div>
 
-    <div>
+    <div class="title">
         <h2>¿Qué producto o servicio necesitas?</h2>
     </div>
 
     <div class="container_filter">
+
+
         <form action="/products/productosCat" method="GET">
-            <label for="categoria">Filtrar por categoría:</label>
-            <select name="categoria" id="categoria">
-                <option value="">Todas las categorías</option>
-                <option value="Categoría 1">Categoría 1</option>
-                <option value="Categoría 2">Categoría 2</option>
-                <option value="Categoría 3">Categoría 3</option>
-                <!-- Agrega aquí todas las opciones de categoría que tengas -->
-            </select>
-            <button type="submit">Filtrar</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="">Todos los productos</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="identificar la falla"> Identificar la falla</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="realizar revision"> Realizar revisión</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="mantenimiento"> Mantenimientos</button>
+        </form>
+
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="latoneria y pinturas"> Latoneria y pintua</button>
         </form>
     </div>
 
@@ -59,29 +69,71 @@
                 <div class="container_product">
                     <h2 th:text="${producto.nombre}"></h2>
                     <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
-                    <label th:text="'Valor: ' + ${producto.valor}"></label>
-                    <a href="">
-                        <button class="product_button">Añadir al carrito</button>
-                    </a>
+                    <label style="text-decoration: line-through; color: red;" th:text="'Valor: ' + ${producto.valor}"></label>
+                    <p>
+                        <span th:text="${producto.descuento} + '%'"></span>
+                        <!-- Calcular precio con descuento -->
+                        <span th:text="'=> $ ' + (${producto.valor} - (${producto.valor} * ${producto.descuento} / 100)) + ',00'"></span>
+                    </p>
+                    <!-- Dentro del bucle th:each que genera los productos -->
+                    <form th:action="@{/products/add-to-cart/{productId}(productId=${producto.id})}" method="post">
+                        <button type="submit" class="normal_button">Añadir al carrito</button>
+                    </form>
                 </div>
             </a>
         </div>
     </div>
+    
+   
+   <div class="super_container_social_media">
+        <div class="container_social_media">
 
-    <div class="container_social_media">
-        <div class="icon-grid">
-            <div class="icon-item" onclick="handleClick('instagram')">
-                <i class="fab fa-instagram"></i>
+            <div>
+                <ul> 
+                    <li><a class="links" href="/products/productosCat">Inicio</a></li>
+                    <li><a class="links" href="/products/productosCat">Servicio</a></li>
+                    <li><a class="links" href="">Descuentos</a></li>
+                    <li><a class="links" href="/products/carritoView">Cotizaciones</a></li>
+                </ul>
             </div>
-            <div class="icon-item" onclick="handleClick('whatsapp')">
-                <i class="fab fa-whatsapp"></i>
+
+            <div>
+            <p>
+                Estamos ubicados en Prado Veraniego
+                Carrera 49 # 128 - 25 | Bogotá. Colombia
+            </p>
+            </div>
+        
+            
+            
+        </div>
+
+        <div class="container_social_media">
+            <div class="icon-grid">
+                <div class="icon-item" onclick="handleClick('instagram')">
+                    <i class="fab fa-instagram"></i>
+                </div>
+        
+                <div class="icon-item" onclick="handleClick('whatsapp')">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        
+            <div>
+                <p>
+                    Copyright © 2024 | Todos los derechos reservados
+                    Diseño & Desarrollo con 🤍  by WidowMaker
+                </p>
             </div>
         </div>
-    </div>
+   </div>
+    
 
-    <a href="feature_public.html">Volver</a>
-
+    <script>
+        function redirectToCarrito() {
+            window.location.href = "/products/carritoView";
+        }
+    </script>
    
-
 </body>
 </html>

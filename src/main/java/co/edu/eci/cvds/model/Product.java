@@ -1,9 +1,17 @@
 package co.edu.eci.cvds.model;
 
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table; 
 
 @Data
@@ -18,7 +26,7 @@ public class Product {
     @Column(name = "VALOR")
     private int valor;
     @Column(name = "DESCUENTO")
-    private int descuento;
+    private double descuento;
     @Column(name = "DESCRIPCIONBREVE")
     private String descripcionBreve;
     @Column(name = "DESCRIPCIONTECNICA")
@@ -31,5 +39,7 @@ public class Product {
     private String tipoUsuario;
     @Column(name = "ICONURL")
     private String iconUrl;
+    @ManyToMany(mappedBy = "products")
+    private List<Carrito> carritos = new ArrayList<>();
 
 }

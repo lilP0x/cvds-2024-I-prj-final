@@ -22,6 +22,9 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
 
     public List<Product> getProductsByName(String name) {
         return productRepository.findByNombre(name);
@@ -32,6 +35,17 @@ public class ProductService {
     }
     public Product addProduct(Product product){
         return productRepository.save(product);
+    }
+
+    public double getValueWithDiscount(Product producto) {
+        if (producto.getDescuento() > 0) {
+            return producto.getValor() - (producto.getValor() * producto.getDescuento());
+        }
+        return producto.getValor();
+    }
+
+    public boolean haveDiscount(Product producto) {
+        return producto.getDescuento() > 0;
     }
 
     public Product getProduct(String name){

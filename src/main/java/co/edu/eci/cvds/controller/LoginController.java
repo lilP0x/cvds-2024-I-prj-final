@@ -53,13 +53,23 @@ public class LoginController {
     }
 
 
+    @GetMapping("/cotizacion")
+    public String cotizacion() {
+        return "Cotizacion";
+    }
+
      @GetMapping("/CrudProduct")
     public String crudProduct() {
         return "CrudProduct";
     }
 
-    @GetMapping("/create")
-    public String createProduct() {
-        return "CreateProduct";
+    @GetMapping("/validateCreate")
+    public String validateCreate() {
+        return "ValidateCreate";
+    }
+
+    @GetMapping("/imprimirCotizacion")
+    public String imprimirCotizacion() {
+        return "ImprimirCotizacion";
     }
 }

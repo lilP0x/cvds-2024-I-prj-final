@@ -1,8 +1,4 @@
 
-function goToCarrito() {
-    window.location.href = "carrito.html";
-}
-
 function handleClick(platform) {
     if (platform === 'instagram') {
         window.location.href = "https://www.instagram.com/topgearbogota/";
@@ -16,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
     }
 
+<<<<<<< HEAD
     // Seleccionar todos los elementos de etiqueta label que muestran el valor del producto
     const valueLabels = document.querySelectorAll('.container_product label');
 
@@ -28,6 +25,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const formattedValue = formatCurrency(rawValue);
 
         // Actualizar el texto de la etiqueta con el valor formateado
+=======
+    const valueLabels = document.querySelectorAll('.container_product label');
+
+    valueLabels.forEach(label => {
+        const rawValue = parseFloat(label.textContent.split(':')[1]);
+
+        const formattedValue = formatCurrency(rawValue);
+
+>>>>>>> 606fb7b7e7f3a961531f26e43fc59b3b0c3ea46c
         label.textContent = formattedValue;
     });
 });
