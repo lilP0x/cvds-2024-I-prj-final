@@ -41,23 +41,24 @@
 
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value=""> Todas</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="">Todos los productos</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 1"> cate1</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="identificar la falla"> Identificar la falla</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 2"> cate2</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="realizar revision"> Realizar revisión</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 3"> cate1</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="mantenimiento"> Mantenimientos</button>
         </form>
 
-        
-
+        <form action="/products/productosCat" method="GET">
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="latoneria y pinturas"> Latoneria y pintua</button>
+        </form>
     </div>
 
 
@@ -68,16 +69,21 @@
                 <div class="container_product">
                     <h2 th:text="${producto.nombre}"></h2>
                     <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
-                    <label th:text="'Valor: ' + ${producto.valor}"></label>
+                    <label style="text-decoration: line-through; color: red;" th:text="'Valor: ' + ${producto.valor}"></label>
+                    <p>
+                        <span th:text="${producto.descuento} + '%'"></span>
+                        <!-- Calcular precio con descuento -->
+                        <span th:text="'=> $ ' + (${producto.valor} - (${producto.valor} * ${producto.descuento} / 100)) + ',00'"></span>
+                    </p>
                     <!-- Dentro del bucle th:each que genera los productos -->
                     <form th:action="@{/products/add-to-cart/{productId}(productId=${producto.id})}" method="post">
                         <button type="submit" class="normal_button">Añadir al carrito</button>
                     </form>
-
                 </div>
             </a>
         </div>
     </div>
+    
    
    <div class="super_container_social_media">
         <div class="container_social_media">
@@ -102,9 +108,7 @@
             
         </div>
 
-
         <div class="container_social_media">
-
             <div class="icon-grid">
                 <div class="icon-item" onclick="handleClick('instagram')">
                     <i class="fab fa-instagram"></i>
@@ -121,8 +125,6 @@
                     Diseño & Desarrollo con 🤍  by WidowMaker
                 </p>
             </div>
-        
-
         </div>
    </div>
     
