@@ -46,9 +46,14 @@
         </table>
 
         <div class="botones">
-            <button onclick="devolverse()">Devolverse al carrito de compra</button>
-            <button onclick="finalizarCotizacion()">Finalizar Cotización</button>
-        </div>
+            <form id="devolverseCarritoComprasForm" action="/products" method="GET">
+                <button type="submit">Devolderse al carrito de compras</button>
+            </form>
+        
+            <form id="finalizarCotizacionForm" action="/login/imprimirCotizacion" method="GET">
+                <button type="submit">Finalizar Cotización</button>
+            </form>
+        </div>        
     </div>
 
     <script>
@@ -56,7 +61,7 @@
             var filas = document.querySelectorAll('tbody tr');
             var subtotal = 0;
             var impuestoTotal = 0;
-
+    
             filas.forEach(function(fila) {
                 var precioUnitario = parseFloat(fila.cells[3].innerText.replace('$', ''));
                 var impuestoUnitario = parseFloat(fila.cells[2].innerText.replace('$', ''));
@@ -65,25 +70,19 @@
                 subtotal += precioUnitario;
                 impuestoTotal += impuestoUnitario;
             });
-
+    
             // Calcular la cotización (subtotal + impuesto total)
             var cotizacion = subtotal + impuestoTotal;
-
+    
             // Actualizar los valores en la tabla
             document.getElementById('subtotal').innerText = '$' + subtotal.toFixed(2);
             document.getElementById('impuestoTotal').innerText = '$' + impuestoTotal.toFixed(2);
             document.getElementById('cotizacion').innerText = '$' + cotizacion.toFixed(2);
         }
 
-        window.onload = calcularTotal;
+    
+        window.onload = calcularTotal;    
 
-        function devolverse() {
-            window.location.href = "/products/Productos";
-        }
-
-        function finalizarCotizacion() {
-            alert('Cotización finalizada');
-        }
     </script>
 </body>
 </html>

@@ -263,8 +263,6 @@ a{
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
-
-
 .original-price {
     text-decoration: line-through;
     color: red;
