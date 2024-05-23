@@ -22,6 +22,9 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
 
     public List<Product> getProductsByName(String name) {
         return productRepository.findByNombre(name);

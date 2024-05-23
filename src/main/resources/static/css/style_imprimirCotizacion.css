@@ -7,8 +7,8 @@ body {
     background: linear-gradient(to bottom, #040404,#3c3c3c,#7c7c7c,#747474);
 }
 
-.carrito-box {
-    width: 500px;
+.imprimirCotizacion-box {
+    width: 320px;
     height: 420px;
     background: #0c1112;
     color: #edf1f2;
@@ -22,7 +22,7 @@ body {
     box-shadow: 0px 0px 2px 2px rgba(223, 191, 67, 0.5);
 }
 
-.carrito-box .avatar {
+.imprimirCotizacion-box .avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -30,41 +30,61 @@ body {
     margin-bottom: 20px;
 }
 
-.carrito-box h1{
+.imprimirCotizacion-box h1{
     margin : 0; 
     padding: 0 0 20 px;
     text-align: center;
     font-size: 22px;
 }
 
-.carrito-box label{
+.imprimirCotizacion-box label{
     margin : 0; 
     padding: 0;
     font-weight: bold;
 }
 
-.carrito-box input {
+.imprimirCotizacion-box input {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.carrito-box a {
+.imprimirCotizacion-box input[type = "submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: #dfbf43 ;
+    color: #edf1f2;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.imprimirCotizacion-box a {
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
     color: #dfbf43;
 }
 
-.carrito-box a:hover {
+.imprimirCotizacion-box a:hover {
     color: #c2212a;
 }
 
-.carrito-box input[type="submit"]:hover {
+.imprimirCotizacion-box input[type="submit"]:hover {
     background-color: #c2212a; 
     box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.7); 
 }
 
-.botones button {
+.imprimirCotizacion-box .botones {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.imprimirCotizacion-box .botones button {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     border: none;
     outline: none;
     width: 200px; 
@@ -79,21 +99,13 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
 }
 
-.botones button:last-child {
+.imprimirCotizacion-box .botones button:last-child {
     margin-right: 0; 
-    margin-top: 8px;
+    margin-top: 20px;
 }
 
-.botones button:hover {
+.imprimirCotizacion-box .botones button:hover {
     background-color: #c2212a;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12); 
 }
 
-.botones {
-    display: flex; 
-    justify-content: center; 
-}
-
-.botones form {
-    margin-right: 10px; 
-}
