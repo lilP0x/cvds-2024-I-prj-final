@@ -31,7 +31,7 @@ h1 {
 
 .quote {
     background-color: rgba(26, 26, 26, 0.8);
-    border: 1px solid #dfbf43;
+    border: 1px solid #fcb900;
     padding: 20px;
     width: 320px; 
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
@@ -63,7 +63,7 @@ h1 {
 
 .btn {
     padding: 10px 20px;
-    background-color: #dfbf43; 
+    background-color: #fcb900; 
     color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;

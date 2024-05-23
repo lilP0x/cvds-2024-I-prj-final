@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Entity // Agrega esta anotación
+@Entity
 @Table(name = "CARRITO")
 public class Carrito {
     @Id
