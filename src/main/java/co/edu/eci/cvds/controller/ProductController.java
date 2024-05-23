@@ -40,6 +40,7 @@ public class ProductController {
         return "carrito";
     }
 
+
     @GetMapping("/productosCat")
     public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
         if (categoria != null && !categoria.isEmpty()) {
@@ -52,5 +53,29 @@ public class ProductController {
             System.out.println("else");
         }
         return "productos";
+    }
+
+    @GetMapping("/administration")
+    public String showProductosPrivPage(Model model) {
+        List<Product> productos = productService.getAllProducts();
+        model.addAttribute("productos", productos);
+        return "administration";
+    }
+
+    @GetMapping("/create")
+    public String createProduct() {
+        return "CreateProduct";
+    }
+
+    @GetMapping("/read")
+    public String showAllProducts(Model model) {
+        List<Product> productos = productService.getAllProducts();
+        model.addAttribute("productos", productos);
+        return "ReadProduct";
+    }
+
+    @GetMapping("/delete")
+    public String deleteProduct() {
+        return "DeleteProduct";
     }
 }

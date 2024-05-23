@@ -7,8 +7,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
-        <relativePath/> <!-- Buscando el padre desde el repositorio -->
+        <version>3.2.0</version> <!-- Cambiar a la versión válida de Spring Boot -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>co.edu.eci.cvds</groupId>
@@ -59,6 +59,25 @@
             <artifactId>lombok</artifactId>
             <version>1.18.30</version> <!-- Manteniendo una versión única -->
             <scope>provided</scope> <!-- Lombok es para tiempo de compilación -->
+        </dependency>
+
+        <!-- Para el Pdf -->
+        <dependency>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-core</artifactId>
+            <version>0.0.1-RC13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-pdfbox</artifactId>
+            <version>0.0.1-RC13</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version>
         </dependency>
     </dependencies>
 

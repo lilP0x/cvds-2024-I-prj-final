@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Confirmar Eliminación de Producto</title>
+    <link rel="stylesheet" href="/css/style_administration.css">
+</head>
+<body>
+<div class="administration-box">
+    <h1>Confirmar Eliminación de Producto</h1><br>
+    <div class="box-container">
+        <div class="product-wrapper">
+            <p>¿Estás seguro de que deseas eliminar el producto <span th:text="${producto.nombre}"></span>?</p>
+            <form th:action="@{/productos/eliminar}" method="post" class="box">
+                <input type="hidden" name="id" th:value="${producto.id}">
+                <input type="submit" value="Eliminar">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
