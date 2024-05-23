@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 <!-- Productos dinámicos se insertarán aquí -->
-                <tr th:each="producto : ${productos}">
+                <tr th:each="producto : ${productosEnCarrito}">
                     <td><a th:href="@{'/products/' + ${producto.id}}" th:text="${producto.nombre}"></a></td>
                     <td>Calidad del producto</td>
                     <td th:text="${producto.impuesto}"></td>
@@ -79,8 +79,10 @@
             document.getElementById('impuestoTotal').innerText = '$' + impuestoTotal.toFixed(2);
             document.getElementById('cotizacion').innerText = '$' + cotizacion.toFixed(2);
         }
+
     
         window.onload = calcularTotal;    
+
     </script>
 </body>
 </html>

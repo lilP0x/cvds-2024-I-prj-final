@@ -6,6 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import co.edu.eci.cvds.model.Product;
 import co.edu.eci.cvds.service.ProductService;
+import co.edu.eci.cvds.service.CarritoService;
+import co.edu.eci.cvds.model.Carrito;
+
+
 
 import java.util.List;
 
@@ -14,11 +18,14 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+    private final CarritoService carritoService;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, CarritoService carritoService) {
         this.productService = productService;
+        this.carritoService = carritoService;
     }
+
 
     @GetMapping("/Productos")
     public String showProductosPage() {
@@ -35,9 +42,16 @@ public class ProductController {
 
     @GetMapping("/carrito")
     public String showCarrito(Model model) {
-        List<Product> productos = productService.getAllProducts(); // Obtener todos los productos o los productos del carrito
-        model.addAttribute("productos", productos);
+        // Implementa la lógica para obtener el contenido del carrito y pasarlos al modelo
+        List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
+        model.addAttribute("productosEnCarrito", productosEnCarrito);
         return "carrito";
+    }
+    
+    @PostMapping("/add-to-cart/{productId}")
+    public String addToCart(@PathVariable String productId) {
+        carritoService.agregarProductoAlCarrito(productId);
+        return "redirect:/products/carrito";
     }
 
 
@@ -46,14 +60,15 @@ public class ProductController {
         if (categoria != null && !categoria.isEmpty()) {
             List<Product> productosFiltrados = productService.getProductsByCategoria(categoria);
             model.addAttribute("productos", productosFiltrados);
-            System.out.println("si filtro");
+            //System.out.println("si filtro");
         } else {
             List<Product> allProducts = productService.getAllProducts();
             model.addAttribute("productos", allProducts);
-            System.out.println("else");
+            //System.out.println("else");
         }
         return "productos";
     }
+
 
     @GetMapping("/administration")
     public String showProductosPrivPage(Model model) {
@@ -79,3 +94,6 @@ public class ProductController {
         return "DeleteProduct";
     }
 }
+
+}
+
