@@ -44,4 +44,9 @@
  - Finalmente para el tercer sprint se hacen ajustes finales y se cambian algunas configuraciones para que funcione como es debido.
  
 
+## Correr el proyecto 
+
+mvn spring-boot:run
+
+![image](https://github.com/lilP0x/cvds-2024-I-prj-final/assets/143991834/dfa8de6f-7d36-4e28-8f5f-cb4f01f62481)
 
