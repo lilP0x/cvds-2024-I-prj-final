@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import co.edu.eci.cvds.model.Product;
+import co.edu.eci.cvds.service.ConfigurationService;
 import co.edu.eci.cvds.service.ProductService;
 import co.edu.eci.cvds.service.CarritoService;
 import co.edu.eci.cvds.model.Carrito;
@@ -44,6 +45,23 @@ public class ProductController {
         model.addAttribute("productosEnCarrito", productosEnCarrito);
         return "carrito";
     }
+
+    @GetMapping("/productosCat")
+    public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
+    if (categoria != null && !categoria.isEmpty()) {
+        List<Product> productosFiltrados = productService.getProductsByCategoria(categoria);
+        model.addAttribute("productos", productosFiltrados);
+        System.out.println("si filtro");
+    } else {
+        List<Product> allProducts = productService.getAllProducts();
+        model.addAttribute("productos", allProducts);
+        System.out.println("else");
+
+    }
+    return "productos";
+}
+
+
     
 
     @GetMapping("/carrito")
