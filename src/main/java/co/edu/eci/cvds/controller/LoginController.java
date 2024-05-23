@@ -31,9 +31,45 @@ public class LoginController {
         return LOGIN_PAGE;
     }
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public String register() {
         return "login/register";
     }
 
+     @GetMapping("/losePassword")
+    public String losePassword() {
+        return "LosePassword";
+    }
+
+     @GetMapping("/selectedMode")
+    public String selectedMode() {
+        return "SelectedMode";
+    }
+
+    
+    @GetMapping("/administration")
+    public String administration() {
+        return "Administration";
+    }
+
+
+    @GetMapping("/cotizacion")
+    public String cotizacion() {
+        return "Cotizacion";
+    }
+
+     @GetMapping("/CrudProduct")
+    public String crudProduct() {
+        return "CrudProduct";
+    }
+
+    @GetMapping("/validateCreate")
+    public String validateCreate() {
+        return "ValidateCreate";
+    }
+
+    @GetMapping("/imprimirCotizacion")
+    public String imprimirCotizacion() {
+        return "ImprimirCotizacion";
+    }
 }

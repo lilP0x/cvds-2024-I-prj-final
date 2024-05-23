@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(to bottom, #040404,#3c3c3c,#7c7c7c,#747474);
+}
+
+.createProduct-box {
+    width: 400px;
+    max-width: 90%;
+    height: auto; 
+    background: #0c1112;
+    color: #edf1f2;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 40px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 2px 2px rgba(223, 191, 67, 0.5);
+}
+
+.createProduct-box h1 {
+    margin: 0; 
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.createProduct-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.createProduct-box input,
+.createProduct-box select {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.category-selection select::after {
+    content: '\25BC'; 
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    pointer-events: none; 
+}
+
+.additional-fields .row {
+    display: flex;
+    flex-wrap: wrap; 
+    margin-bottom: 10px;
+}
+
+.additional-fields .row > div {
+    flex: 1;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.additional-fields label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.createProduct-box input[type = "submit"]{
+    width: 100%; 
+    height: 40px;
+    background-color: #fcb900 ;
+    color: #edf1f2;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.createProduct-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fcb900;
+}
+
+.createProduct-box a:hover {
+    color: #c2212a;
+}
+
+.createProduct-box input[type="submit"]:hover {
+    background-color: #c2212a; 
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.7); 
+}

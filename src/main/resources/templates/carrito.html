@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/style_carrito.css">
+</head>
+<body>
+    <div class="carrito-box">
+        <h1>Tu Cotización</h1>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto o Servicio</th>
+                    <th>Calidad</th>
+                    <th>Impuesto Unitario</th>
+                    <th>Precio Unitario</th>
+                    <th>Precio Total</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Productos dinámicos se insertarán aquí -->
+                <tr th:each="producto : ${productosEnCarrito}">
+                    <td><a th:href="@{'/products/' + ${producto.id}}" th:text="${producto.nombre}"></a></td>
+                    <td>Calidad del producto</td>
+                    <td th:text="${producto.impuesto}"></td>
+                    <td th:text="${producto.valor}"></td>
+                    <td th:text="${producto.valor + producto.impuesto}"></td> 
+                    <td class="delete-cell"><img src="/static/borrarProducto.png" alt="Eliminar" class="delete-icon" onclick="eliminarProducto(this)"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Subtotal</td>
+                    <td id="subtotal">$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Impuesto Total</td>
+                    <td id="impuestoTotal">$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Cotización</td>
+                    <td id="cotizacion">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="botones">
+            <form id="devolverseCarritoComprasForm" action="/products/productosCat" method="GET">
+                <button type="submit">Devolderse al carrito de compras</button>
+            </form>
+        
+            <form id="finalizarCotizacionForm" action="/login/imprimirCotizacion" method="GET">
+                <button type="submit">Finalizar Cotización</button>
+            </form>
+        </div>        
+    </div>
+
+    <script>
+        function calcularTotal() {
+            var filas = document.querySelectorAll('tbody tr');
+            var subtotal = 0;
+            var impuestoTotal = 0;
+    
+            filas.forEach(function(fila) {
+                var precioUnitario = parseFloat(fila.cells[3].innerText.replace('$', ''));
+                var impuestoUnitario = parseFloat(fila.cells[2].innerText.replace('$', ''));
+                var precioTotal = precioUnitario + impuestoUnitario;
+                fila.cells[4].innerText = '$' + precioTotal.toFixed(2);
+                subtotal += precioUnitario;
+                impuestoTotal += impuestoUnitario;
+            });
+    
+            // Calcular la cotización (subtotal + impuesto total)
+            var cotizacion = subtotal + impuestoTotal;
+    
+            // Actualizar los valores en la tabla
+            document.getElementById('subtotal').innerText = '$' + subtotal.toFixed(2);
+            document.getElementById('impuestoTotal').innerText = '$' + impuestoTotal.toFixed(2);
+            document.getElementById('cotizacion').innerText = '$' + cotizacion.toFixed(2);
+        }
+
+        function eliminarProducto(element) {
+            var fila = element.parentNode.parentNode;
+            fila.parentNode.removeChild(fila);
+            calcularTotal();
+        }
+
+        // Calcula el total cuando la página se carga por primera vez
+        document.addEventListener('DOMContentLoaded', calcularTotal);
+    </script>
+</body>
+</html>

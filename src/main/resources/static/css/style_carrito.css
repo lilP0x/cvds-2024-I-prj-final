@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(to bottom, #040404, #3c3c3c, #7c7c7c, #747474);
+}
+
+.carrito-box {
+    width: 80%;
+    max-width: 900px;
+    background: #0c1112;
+    color: #edf1f2;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px 2px rgba(223, 191, 67, 0.5);
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #edf1f2;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #3c3c3c;
+}
+
+td.delete-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.delete-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.botones {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones form {
+    margin: 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #fcb900;
+    color: #0c1112;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #c2212a;
+    color: #edf1f2;
+}

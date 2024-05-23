@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CrudProduct</title>
+
+    <link rel="stylesheet" href="/css/style_crudProduct.css">
+
+
+</head>
+<body>
+    <div class="crudProduct-box">
+        <h1>Nombre del Producto</h1><br>
+
+        <form id="createForm" action="/products/create">
+            <input type="submit" value="Adicionar">
+        </form>
+        <form id="consultForm" action="/products/read">
+            <input type="submit" value="Consultar">
+        </form>
+        <form id="updateForm" action="/products/update">
+            <input type="submit" value="Modificar">
+        </form>
+        <form id="deleteForm" action="/products/delete">
+            <input type="submit" value="Eliminar">
+        </form>
+    </div>
+</body>
+</html>

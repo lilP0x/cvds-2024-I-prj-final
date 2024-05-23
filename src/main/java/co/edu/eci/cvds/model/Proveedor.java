@@ -1,28 +1,40 @@
 package co.edu.eci.cvds.model;
 
-public class Proveedor extends Usuario {
+import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "PROVEEDOR")
+public class Proveedor {
+    @Id
+    @Column(name = "ID")
+    private String id;
+    
+    @Column(name = "NOMBRE")
+    private String nombre;
+    
+    @Column(name = "TIPO_ID")
+    private String tipoId;
+    
+    @Column(name = "NUMERO_ID")
+    private String numeroId;
+    
+    @Column(name = "CORREO")
+    private String correo;
+    
+    @Column(name = "DIRECCION")
+    private String direccion;
+    
+    @Column(name = "RAZON_SOCIAL")
     private String razonSocial;
+    
+    @Column(name = "TIPO")
     private String tipo;
+    
+    @Column(name = "ESPECIFICACIONES")
     private String especificaciones;
-
-
-    public Proveedor(String nombre, String tipoId, int numeroId, String correo, String direccion,
-                     String razonSocial, String tipo, String especificaciones) {
-        super(nombre, tipoId, numeroId, correo, direccion);
-        this.razonSocial = razonSocial;
-        this.tipo = tipo;
-        this.especificaciones = especificaciones;
-    }
-
-    @Override
-    public void mostrarInformacion() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Tipo de ID: " + tipoId);
-        System.out.println("Número de ID: " + numeroId);
-        System.out.println("Correo: " + correo);
-        System.out.println("Dirección: " + direccion);
-        System.out.println("Razón Social: " + razonSocial);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Especificaciones: " + especificaciones);
-    }
 }

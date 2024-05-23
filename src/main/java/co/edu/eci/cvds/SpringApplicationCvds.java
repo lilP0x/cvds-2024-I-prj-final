@@ -31,7 +31,7 @@ public class SpringApplicationCvds {
 	@Bean
 	public CommandLineRunner run() {
 		return (args) -> {
-			System.out.println("Running...");
+			System.out.println("Los odio a todos");
 		};
 	}
 
