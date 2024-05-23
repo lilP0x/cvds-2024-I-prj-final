@@ -36,8 +36,8 @@ public class ProductController {
         model.addAttribute("producto", producto);
         return "producto"; 
     }
-    
 
+    
     @GetMapping("/carritoView")
     public String showCarritoView(Model model) {
         List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
@@ -60,9 +60,6 @@ public class ProductController {
         return "redirect:/products/productosCat";
     }
     
-
-
-
     @GetMapping("/productosCat")
     public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
         if (categoria != null && !categoria.isEmpty()) {
@@ -102,7 +99,9 @@ public class ProductController {
     }
 
     @GetMapping("/delete")
-    public String deleteProduct() {
+    public String deleteAllProducts(Model model) {
+        List<Product> productos = productService.getAllProducts();
+        model.addAttribute("productos", productos);
         return "DeleteProduct";
     }
 
