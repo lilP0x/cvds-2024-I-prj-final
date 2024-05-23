@@ -9,8 +9,6 @@ import co.edu.eci.cvds.service.ProductService;
 import co.edu.eci.cvds.service.CarritoService;
 import co.edu.eci.cvds.model.Carrito;
 
-
-
 import java.util.List;
 
 @Controller
@@ -63,6 +61,7 @@ public class ProductController {
     }
     
 
+
     @GetMapping("/productosCat")
     public String showProductosByCategoria(@RequestParam(name = "categoria", required = false) String categoria, Model model) {
         if (categoria != null && !categoria.isEmpty()) {
@@ -76,7 +75,6 @@ public class ProductController {
         }
         return "productos";
     }
-
 
     @GetMapping("/administration")
     public String showProductosPrivPage(Model model) {
@@ -97,11 +95,23 @@ public class ProductController {
         return "ReadProduct";
     }
 
+    @GetMapping("/update")
+    public String updateProduct() {
+        return "UpdateProduct";
+    }
+
     @GetMapping("/delete")
     public String deleteProduct() {
         return "DeleteProduct";
     }
-}
 
+    @GetMapping("/edit/{productId}")
+    public String editProduct(@PathVariable String productId, Model model) {
+        Product producto = productService.getProductById(productId);
+        model.addAttribute("producto", producto);
+        return "createProduct";
+    }
+    
+}
 
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="/css/style_createProduct.css">
+    <!-- Agregar estilos para el editor de texto -->
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+</head>
+<body>
+    <div class="createProduct-box">
+        <h1>Editar Producto</h1><br>
+        <form id="editProductForm" action="/productos/edit" method="POST">
+            <!-- Hidden input para enviar el ID del producto -->
+            <input type="hidden" name="id" value="{producto.id}">
+            
+            <!-- Descripción breve -->
+            <div>
+                <label>
+                    <span class="required">Descripción breve: </span>
+                </label>
+                <input type="text" name="descriptionB" value="{producto.descripcionB}" maxlength="200" required />
+            </div>
+
+            <!-- Descripción técnica (usando un editor de texto) -->
+            <div>
+                <label>
+                    <span class="required">Descripción Técnica: </span>
+                </label>
+                <div id="editor-container" style="height: 150px;">{producto.descripcionT}</div>
+                <input type="hidden" name="descriptionT" id="hidden-descriptionT">
+            </div>
+            
+            <!-- Categoría -->
+            <div class="category-selection">
+                <label for="category">Categoría:</label>
+                <div class="custom-select">
+                    <select name="category" id="category">
+                        <option value="servicio" {producto.categoria == 'servicio' ? 'selected' : ''}>Servicio</option>
+                        <option value="producto" {producto.categoria == 'producto' ? 'selected' : ''}>Producto</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Campos adicionales -->
+            <div class="additional-fields">
+                <div class="row">
+                    <div>
+                        <label for="valor">Valor:</label>
+                        <input type="text" name="valor" id="valor" value="{producto.valor}">
+                    </div>
+                    <div>
+                        <label for="moneda">Moneda:</label>
+                        <input type="text" name="moneda" id="moneda" value="{producto.moneda}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="descuento">Descuento:</label>
+                        <input type="number" name="descuento" id="descuento" min="0" max="100" value="{producto.descuento}">
+                    </div>
+                    <div>
+                        <label for="impuestos">Impuestos:</label>
+                        <input type="number" name="impuestos" id="impuestos" min="0" max="100" value="{producto.impuestos}">
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Guardar cambios">
+        </form>
+    </div>
+    
+    <!-- Agregar scripts para el editor de texto -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var editor = new Quill('#editor-container', {
+            theme: 'snow'
+        });
+
+        // Al enviar el formulario, actualizar el campo hidden con el contenido del editor
+        document.getElementById('editProductForm').addEventListener('submit', function() {
+            var descriptionT = document.querySelector('input[name=descriptionT]');
+            descriptionT.value = editor.root.innerHTML;
+        });
+    </script>
+</body>
+</html>
