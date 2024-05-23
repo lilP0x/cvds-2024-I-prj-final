@@ -39,20 +39,21 @@
 
     <div class="container_filter">
 
+
         <form action="/products/productosCat" method="GET">
             <button class="normal_button" name="categoria" id="categoria" type="submit" value=""> Todas</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 1"> cate1</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 1"> cate1</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 2"> cate2</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 2"> cate2</button>
         </form>
 
         <form action="/products/productosCat" method="GET">
-            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoría 3"> cate1</button>
+            <button class="normal_button" name="categoria" id="categoria" type="submit" value="Categoria 3"> cate1</button>
         </form>
 
         
@@ -68,9 +69,11 @@
                     <h2 th:text="${producto.nombre}"></h2>
                     <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
                     <label th:text="'Valor: ' + ${producto.valor}"></label>
-                    <a href="">
-                        <button class="normal_button">Añadir al carrito</button>
-                    </a>
+                    <!-- Dentro del bucle th:each que genera los productos -->
+                    <form th:action="@{/products/add-to-cart/{productId}(productId=${producto.id})}" method="post">
+                        <button type="submit" class="normal_button">Añadir al carrito</button>
+                    </form>
+
                 </div>
             </a>
         </div>

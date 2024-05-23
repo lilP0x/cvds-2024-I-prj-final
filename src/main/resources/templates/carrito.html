@@ -17,16 +17,18 @@
                     <th>Impuesto Unitario</th>
                     <th>Precio Unitario</th>
                     <th>Precio Total</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Productos dinámicos se insertarán aquí -->
-                <tr th:each="producto : ${productos}">
+                <tr th:each="producto : ${productosEnCarrito}">
                     <td><a th:href="@{'/products/' + ${producto.id}}" th:text="${producto.nombre}"></a></td>
                     <td>Calidad del producto</td>
                     <td th:text="${producto.impuesto}"></td>
                     <td th:text="${producto.valor}"></td>
                     <td th:text="${producto.valor + producto.impuesto}"></td> 
+                    <td class="delete-cell"><img src="/static/borrarProducto.png" alt="Eliminar" class="delete-icon" onclick="eliminarProducto(this)"></td>
                 </tr>
             </tbody>
             <tfoot>
@@ -79,8 +81,15 @@
             document.getElementById('impuestoTotal').innerText = '$' + impuestoTotal.toFixed(2);
             document.getElementById('cotizacion').innerText = '$' + cotizacion.toFixed(2);
         }
-    
-        window.onload = calcularTotal;    
+
+        function eliminarProducto(element) {
+            var fila = element.parentNode.parentNode;
+            fila.parentNode.removeChild(fila);
+            calcularTotal();
+        }
+
+        // Calcula el total cuando la página se carga por primera vez
+        document.addEventListener('DOMContentLoaded', calcularTotal);
     </script>
 </body>
 </html>

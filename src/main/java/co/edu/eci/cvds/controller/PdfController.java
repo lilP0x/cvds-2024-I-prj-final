@@ -1,5 +1,8 @@
 package co.edu.eci.cvds.controller;
 
+import co.edu.eci.cvds.model.Product;
+import co.edu.eci.cvds.service.CarritoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,14 +14,19 @@ import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class PdfController {
 
+    @Autowired
+    private CarritoService carritoService;
+
     @GetMapping("/pdf/generate")
     public ResponseEntity<byte[]> generatePdf() {
- 
-        String htmlContent = constructHtmlContent(); 
+
+        List<Product> productosEnCarrito = carritoService.getProductosEnCarrito();
+        String htmlContent = constructHtmlContent(productosEnCarrito);
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PdfRendererBuilder builder = new PdfRendererBuilder().withHtmlContent(htmlContent, null);
@@ -29,7 +37,6 @@ public class PdfController {
             e.printStackTrace();
             return new ResponseEntity<>("Error al generar el PDF".getBytes(), HttpStatus.INTERNAL_SERVER_ERROR);
         } finally {
- 
             try {
                 outputStream.close();
             } catch (IOException ioException) {
@@ -44,42 +51,49 @@ public class PdfController {
         return new ResponseEntity<>(outputStream.toByteArray(), headers, HttpStatus.OK);
     }
 
-    private String constructHtmlContent() {
+    private String constructHtmlContent(List<Product> productosEnCarrito) {
         StringBuilder htmlContent = new StringBuilder();
-        htmlContent.append("<html><head><title>Tu Cotización</title></head><body>");
-        htmlContent.append("<h1>Tu Cotización</h1>");
-        htmlContent.append("<table>");
+        htmlContent.append("<html><head><title>Tu Cotización</title></head><body style=\"margin: 20px;\">");
+        htmlContent.append("<h1 style=\"margin-bottom: 20px;\">Tu Cotización</h1>");
+        htmlContent.append("<table style=\"width: 100%; border-collapse: collapse; margin-top: 20px;\">");
         htmlContent.append("<thead><tr>");
-        htmlContent.append("<th>Producto o Servicio</th>");
-        htmlContent.append("<th>Calidad</th>");
-        htmlContent.append("<th>Impuesto Unitario</th>");
-        htmlContent.append("<th>Precio Unitario</th>");
-        htmlContent.append("<th>Precio Total</th>");
+        htmlContent.append("<th style=\"border: 1px solid #000; padding: 10px;\">Producto o Servicio</th>");
+        htmlContent.append("<th style=\"border: 1px solid #000; padding: 10px;\">Calidad</th>");
+        htmlContent.append("<th style=\"border: 1px solid #000; padding: 10px;\">Impuesto Unitario</th>");
+        htmlContent.append("<th style=\"border: 1px solid #000; padding: 10px;\">Precio Unitario</th>");
+        htmlContent.append("<th style=\"border: 1px solid #000; padding: 10px;\">Precio Total</th>");
         htmlContent.append("</tr></thead>");
         htmlContent.append("<tbody>");
-
-
-        // Aquí van los datitos 
-        htmlContent.append("<tr><td>Producto A</td><td>Calidad del producto</td><td>15</td><td>$100,000.00</td><td>$100,015.00</td></tr>");
-        htmlContent.append("<tr><td>Producto B</td><td>Calidad del producto</td><td>18</td><td>$200,000.00</td><td>$200,018.00</td></tr>");
-        htmlContent.append("<tr><td>Producto C</td><td>Calidad del producto</td><td>12</td><td>$250,000.00</td><td>$250,012.00</td></tr>");
+    
+        double subtotal = 0;
+        double impuestoTotal = 0;
+        for (Product producto : productosEnCarrito) {
+            double precioUnitario = producto.getValor();
+            double impuestoUnitario = producto.getImpuesto();
+            double precioTotal = precioUnitario + impuestoUnitario;
+            htmlContent.append("<tr>");
+            htmlContent.append("<td style=\"border: 1px solid #000; padding: 10px;\">").append(producto.getNombre()).append("</td>");
+            htmlContent.append("<td style=\"border: 1px solid #000; padding: 10px;\">Calidad del producto</td>");
+            htmlContent.append("<td style=\"border: 1px solid #000; padding: 10px;\">").append(impuestoUnitario).append("</td>");
+            htmlContent.append("<td style=\"border: 1px solid #000; padding: 10px;\">").append(precioUnitario).append("</td>");
+            htmlContent.append("<td style=\"border: 1px solid #000; padding: 10px;\">").append(precioTotal).append("</td>");
+            htmlContent.append("</tr>");
+            subtotal += precioUnitario;
+            impuestoTotal += impuestoUnitario;
+        }
+    
+        double cotizacion = subtotal + impuestoTotal;
+    
         htmlContent.append("</tbody>");
         htmlContent.append("<tfoot>");
-        htmlContent.append("<tr><td colspan='4'>Subtotal</td><td>$550,000.00</td></tr>");
-        htmlContent.append("<tr><td colspan='4'>Impuesto Total</td><td>$45.00</td></tr>");
-        htmlContent.append("<tr><td colspan='4'>Cotización</td><td>$550,045.00</td></tr>");
+        htmlContent.append("<tr><td colspan='4' style=\"border: 1px solid #000; padding: 10px;\">Subtotal</td><td style=\"border: 1px solid #000; padding: 10px;\">").append(subtotal).append("</td></tr>");
+        htmlContent.append("<tr><td colspan='4' style=\"border: 1px solid #000; padding: 10px;\">Impuesto Total</td><td style=\"border: 1px solid #000; padding: 10px;\">").append(impuestoTotal).append("</td></tr>");
+        htmlContent.append("<tr><td colspan='4' style=\"border: 1px solid #000; padding: 10px;\">Cotización</td><td style=\"border: 1px solid #000; padding: 10px;\">").append(cotizacion).append("</td></tr>");
         htmlContent.append("</tfoot>");
         htmlContent.append("</table>");
-        htmlContent.append("<div>");
-        htmlContent.append("<button onclick='devolverse()'>Devolverse al carrito de compra</button>");
-        htmlContent.append("<button onclick='generarPDF()'>Finalizar Cotización</button>");
-        htmlContent.append("</div>");
-        htmlContent.append("<script>");
-        htmlContent.append("function devolverse() { window.location.href = '/carrito'; }");
-        htmlContent.append("function generarPDF() { window.location.href = '/pdf/generate'; }");
-        htmlContent.append("</script>");
         htmlContent.append("</body></html>");
-
+    
         return htmlContent.toString();
     }
+    
 }
