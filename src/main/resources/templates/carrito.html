@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 <!-- Productos dinámicos se insertarán aquí -->
-                <tr th:each="producto : ${productos}">
+                <tr th:each="producto : ${productosEnCarrito}">
                     <td><a th:href="@{'/products/' + ${producto.id}}" th:text="${producto.nombre}"></a></td>
                     <td>Calidad del producto</td>
                     <td th:text="${producto.impuesto}"></td>
@@ -78,7 +78,7 @@
         window.onload = calcularTotal;
 
         function devolverse() {
-            window.location.href = "/products";
+            window.location.href = "/products/Productos";
         }
 
         function finalizarCotizacion() {

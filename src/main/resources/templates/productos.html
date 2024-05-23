@@ -69,9 +69,11 @@
                     <h2 th:text="${producto.nombre}"></h2>
                     <img th:src= "${'/static/' + producto.iconUrl}" th:alt="'Imagen de ' + ${producto.nombre}" />
                     <label th:text="'Valor: ' + ${producto.valor}"></label>
-                    <a href="">
-                        <button class="normal_button">Añadir al carrito</button>
-                    </a>
+                    <!-- Dentro del bucle th:each que genera los productos -->
+                    <form th:action="@{/products/add-to-cart/{productId}(productId=${producto.id})}" method="post">
+                        <button type="submit" class="normal_button">Añadir al carrito</button>
+                    </form>
+
                 </div>
             </a>
         </div>
