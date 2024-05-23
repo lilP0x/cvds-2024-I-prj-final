@@ -2,13 +2,22 @@
 
 # CONDICIONES DE ENTREGA:
 ## Nombre del proyecto:
-_Periodo académico, Nombre del Curso, Nombre de los Integrantes, Nombre del Profesor, roles asignados (no olvidar que el profesor tuvo el rol de 'Product Owner')._
+- 2024-2
+- Ciclos de Vida y Desarrollo de Software
+- Nicolas Sebastian Achuri Macias (Backend)
+- Sara Katherin Castillo Garcia (FrontEnd)
+- Juan Pablo Fernandez Gonzalez 
+- Laura Valentina Rodriguez Ortegon (FrontEnd)
+- Tomas Suarez Piratova (Backend)
+- Ivan Daria Lemus Moya (Product Owner)
 
 ## Descripción del producto.
- - Funcionalidades implementadas.
+ - La idea es entregar una pagina web de comercio electrónico para TopGear, una empresa que tiene como objetivo dar manetnimiento y todo tipo de servicio automotriz, en este caso la página debe brindarle al usuario una página en la que pueda cotizar productos y servicios para su automovil.
 
 ## Descripción general.
-- Imágenes y descripción de las funcionalidades más importantes.
+- La página tiene la capacidad de almacenar usuarios en la base de datos para autenticarlos.
+- ![image](https://github.com/lilP0x/cvds-2024-I-prj-final/assets/143991834/0074b06b-3a0e-4960-b161-87e0aecbeb02)
+
 
 ## Arquitectura y Diseño detallado:
  - Modelo E-R.
