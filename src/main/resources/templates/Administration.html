@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Administration</title>
+    <link rel="stylesheet" href="/css/style_administration.css">
+</head>
+<body>
+<div class="administration-box">
+    <h1>Productos</h1><br>
+    <div class="box-container">
+        <div class="product-wrapper">
+            <form th:each="producto : ${productos}" th:action="@{'/login/CrudProduct'}" method="get" class="box">
+                <img th:src="@{'/static/' + ${producto.iconUrl}}" alt="Imagen de producto">
+                <p>Nombre: <span th:text="${producto.nombre}"></span></p>
+                <p>ID: <span th:text="${producto.id}"></span></p>
+                <p>Valor: <span th:text="${producto.valor}"></span></p>
+                <input type="submit" value="Editar">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
