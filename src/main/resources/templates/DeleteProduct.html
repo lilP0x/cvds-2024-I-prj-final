@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <title>Confirmar Eliminación de Producto</title>
-    <link rel="stylesheet" href="/css/style_administration.css">
+    <meta charset="UTF-8">
+    <title>Consultar Producto</title>
+    <link rel="stylesheet" href="/css/style_deleteProduct.css">
 </head>
 <body>
 <div class="administration-box">
-    <h1>Confirmar Eliminación de Producto</h1><br>
+    <h1>Eliminar Productos</h1><br>
     <div class="box-container">
         <div class="product-wrapper">
-            <p>¿Estás seguro de que deseas eliminar el producto <span th:text="${producto.nombre}"></span>?</p>
-            <form th:action="@{/productos/eliminar}" method="post" class="box">
-                <input type="hidden" name="id" th:value="${producto.id}">
-                <input type="submit" value="Eliminar">
-            </form>
+            <div th:each="producto : ${productos}" class="box">
+                <img th:src="@{'/static/' + ${producto.iconUrl}}" alt="Imagen de producto">
+                <p>Nombre: <span th:text="${producto.nombre}"></span></p>
+                <p>ID: <span th:text="${producto.id}"></span></p>
+                <p>Valor: <span th:text="${producto.valor}"></span></p>
+                <p>Descuento: <span th:text="${producto.descuento}"></span></p>
+                <p>Descripción Breve: <span th:text="${producto.descripcionBreve}"></span></p>
+                <p>Descripción Técnica: <span th:text="${producto.descripcionTecnica}"></span></p>
+                <p>Categoría: <span th:text="${producto.categoria}"></span></p>
+                <p>Impuesto: <span th:text="${producto.impuesto}"></span></p>
+                <p>Tipo de Usuario: <span th:text="${producto.tipoUsuario}"></span></p>
+                <button type="submit" onclick="confirmDelete()">Eliminar</button>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    function confirmDelete() {
+        if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+            alert("El producto ha sido eliminado.");
+        }
+    }
+</script>
+
 </body>
 </html>
